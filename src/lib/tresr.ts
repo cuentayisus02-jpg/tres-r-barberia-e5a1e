@@ -2,21 +2,50 @@ export const NEGOCIO = {
   nombre: "Tres R Barbería",
   telefono: "+52 81 2875 0500",
   telefonoE164: "+528128750500",
-  whatsapp: "https://wa.me/528128750500?text=Hola%20Tres%20R%20Barber%C3%ADa%2C%20quiero%20agendar%20una%20cita.",
-  direccion: "Av. de los Astros 101, Plaza Point 54, Local 7, Barrio Estrella, 64100 Monterrey, N.L.",
+  whatsapp:
+    "https://wa.me/528128750500?text=Hola%20Tres%20R%20Barber%C3%ADa%2C%20quiero%20agendar%20una%20cita.",
+  direccion:
+    "Av. de los Astros 101, Plaza Point 54, Local 7, Barrio Estrella, 64100 Monterrey, N.L.",
   maps: "https://share.google/11qmvryk6tomfi9mS",
   instagram: "https://www.instagram.com/tresr_barber",
   instagramHandle: "@tresr_barber",
   rating: 4.3,
   resenas: 16,
-  descripcion: "Somos una barbería donde buscamos hacer sentir al cliente como en casa, con trato amable y buen ambiente, donde un amigo es tu barbero.",
+  descripcion:
+    "Somos una barbería donde buscamos hacer sentir al cliente como en casa, con trato amable y buen ambiente, donde un amigo es tu barbero.",
 } as const;
 
 export const SERVICIOS = [
-  { id: "corte", nombre: "Corte clásico y moderno", detalle: "Desde el fade más limpio hasta el clásico de toda la vida, adaptado a tu tipo de cabello." },
-  { id: "barba", nombre: "Barba y perfilado", detalle: "Perfilado a navaja, toalla caliente y acabado preciso en cada línea." },
-  { id: "corte-barba", nombre: "Corte + barba", detalle: "El combo completo: look renovado de arriba a abajo en una sola visita." },
-  { id: "diseno", nombre: "Diseño y acabados", detalle: "Líneas, detalles a mano alzada y acabados para que tu corte destaque." },
+  {
+    id: "corte",
+    nombre: "Corte",
+    precio: "$200",
+    duracion: "Aprox. 35–40 min",
+    detalle: "Corte detallado profesional, desvanecido a gusto, tijera o máquina y peinado final.",
+  },
+  {
+    id: "corte-barba",
+    nombre: "Corte y barba",
+    precio: "$300",
+    duracion: "Aprox. 50–60 min",
+    detalle:
+      "El ritual completo: corte fresco, toalla caliente, arreglo de barba y acabado impecable.",
+  },
+  {
+    id: "ceja",
+    nombre: "Delineado de ceja",
+    precio: "$50",
+    duracion: "Aprox. 15 min",
+    detalle:
+      "Limpieza milimétrica y definición de cejas con acabado natural para una mirada más limpia.",
+  },
+  {
+    id: "linea",
+    nombre: "Línea extra",
+    precio: "$50",
+    duracion: "Aprox. 10 min",
+    detalle: "Trazo artístico adicional con navaja para darle un detalle único a tu corte.",
+  },
 ] as const;
 
 export const HORARIOS = [
@@ -30,7 +59,11 @@ export const HORARIOS = [
 ] as const;
 
 export const RESENAS = [
-  { autor: "Alexis Rubio", estrellas: 5, texto: "Recomiendo mucho esta barber, excelente servicio, te tratan bien." },
+  {
+    autor: "Alexis Rubio",
+    estrellas: 5,
+    texto: "Recomiendo mucho esta barber, excelente servicio, te tratan bien.",
+  },
   { autor: "Raúl Valadez", estrellas: 4, texto: "Está bien, te ofrecen cerveza o agua." },
   { autor: "Erick Palacios", estrellas: 5, texto: "Atendieron rápido y buen corte 😎🤙🏻" },
 ] as const;
@@ -76,7 +109,20 @@ export function hoyISO(): string {
 }
 
 const DIAS = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"] as const;
-const MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"] as const;
+const MESES = [
+  "enero",
+  "febrero",
+  "marzo",
+  "abril",
+  "mayo",
+  "junio",
+  "julio",
+  "agosto",
+  "septiembre",
+  "octubre",
+  "noviembre",
+  "diciembre",
+] as const;
 
 export function fechaLegible(iso: string): string {
   if (!iso) return "";
@@ -100,7 +146,8 @@ export function descargarVCard(): void {
     "ADR;TYPE=WORK:;;Av. de los Astros 101, Plaza Point 54, Local 7;Monterrey;N.L.;64100;México",
     "URL:https://tres-r-barberia.netlify.app/",
     "X-SOCIALPROFILE;TYPE=instagram:" + NEGOCIO.instagram,
-    "NOTE:Barbería en Monterrey. Lun–Vie 2:00 p.m.–10:00 p.m. · Sáb 1:00 p.m.–9:00 p.m. · Dom cerrado. Instagram " + NEGOCIO.instagramHandle,
+    "NOTE:Barbería en Monterrey. Lun–Vie 2:00 p.m.–10:00 p.m. · Sáb 1:00 p.m.–9:00 p.m. · Dom cerrado. Instagram " +
+      NEGOCIO.instagramHandle,
     "END:VCARD",
   ].join("\r\n");
   const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
