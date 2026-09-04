@@ -1,7 +1,7 @@
 import { CalendarCheck, MapPin, MessageCircle, Zap } from "lucide-react";
 import hero from "@/assets/foto-hero.jpg";
 import { enlaceWhatsApp, NEGOCIO } from "@/lib/tresr";
-import { Estrellas, Reveal } from "./primitivos";
+import { Reveal } from "./primitivos";
 import { Marca } from "./Encabezado";
 
 export function Hero() {
@@ -75,12 +75,19 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={320}>
-          <div className="mt-7 flex items-center gap-3 text-sm text-muted-foreground">
-            <Estrellas valor={NEGOCIO.rating} />
-            <span>
-              <strong className="text-foreground">{NEGOCIO.rating}</strong> · {NEGOCIO.resenas}{" "}
-              reseñas en Google
-            </span>
+          <div className="mt-7 grid max-w-lg grid-cols-3 overflow-hidden rounded-xl linea-fina bg-card/75 backdrop-blur-md">
+            <div className="px-3 py-4 text-center">
+              <strong className="block font-display text-2xl text-accent">4</strong>
+              <span className="text-xs text-muted-foreground">servicios para elegir</span>
+            </div>
+            <div className="border-x border-border/70 px-3 py-4 text-center">
+              <strong className="block font-display text-2xl text-teal">100%</strong>
+              <span className="text-xs text-muted-foreground">trato personalizado</span>
+            </div>
+            <div className="px-3 py-4 text-center">
+              <strong className="block font-display text-2xl text-accent">{NEGOCIO.rating}★</strong>
+              <span className="text-xs text-muted-foreground">calificación Google</span>
+            </div>
           </div>
         </Reveal>
       </div>
