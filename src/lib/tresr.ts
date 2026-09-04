@@ -58,22 +58,31 @@ export const RESENAS = [
   { autor: "Erick Palacios", estrellas: 5, texto: "Atendieron rápido y buen corte 😎🤙🏻" },
 ] as const;
 
-/** Genera las horas disponibles según el horario del negocio para una fecha dada (YYYY-MM-DD). */
+/** Descompone "YYYY-MM-DD" en partes numéricas sin pasar por `new Date(str)` (UTC). */
+function partesFecha(fechaISO: string): [number, number, number] {
+  const [y, m, d] = fechaISO.split("-").map(Number);
+  return [y ?? 2026, m ?? 1, d ?? 1];
+}
+
+/**
+ * Genera las horas disponibles según el día de la semana de la fecha elegida
+ * (YYYY-MM-DD), interpretada siempre como fecha local:
+ * lun–vie 2:00–9:30 p.m. · sábado 12:00–9:30 p.m. · domingo 11:00 a.m.–4:30 p.m.
+ */
 export function horasDisponibles(fechaISO: string): string[] {
   if (!fechaISO) return [];
-  const [y, m, d] = fechaISO.split("-").map(Number);
-  const dia = new Date(y ?? 2026, (m ?? 1) - 1, d ?? 1).getDay(); // 0 domingo
+  const [y, m, d] = partesFecha(fechaISO);
+  const dia = new Date(y, m - 1, d).getDay(); // 0 domingo
   let inicio = 14;
-  let fin = 22;
+  let ultimo = 21.5;
   if (dia === 6) inicio = 12;
   if (dia === 0) {
     inicio = 11;
-    fin = 17;
+    ultimo = 16.5;
   }
   const horas: string[] = [];
-  for (let h = inicio; h < fin; h++) {
-    horas.push(formatoHora(h, 0));
-    horas.push(formatoHora(h, 30));
+  for (let t = inicio; t <= ultimo; t += 0.5) {
+    horas.push(formatoHora(Math.floor(t), t % 1 === 0 ? 0 : 30));
   }
   return horas;
 }
@@ -84,19 +93,47 @@ function formatoHora(h: number, min: number) {
   return `${h12}:${String(min).padStart(2, "0")} ${sufijo}`;
 }
 
+/** Fecha de hoy en Monterrey (America/Mexico_City) como YYYY-MM-DD, sin desfase UTC. */
 export function hoyISO(): string {
-  const n = new Date();
-  return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, "0")}-${String(n.getDate()).padStart(2, "0")}`;
+  const partes = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Mexico_City",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+  return partes; // en-CA ya entrega YYYY-MM-DD
 }
 
+const DIAS = [
+  "domingo",
+  "lunes",
+  "martes",
+  "miércoles",
+  "jueves",
+  "viernes",
+  "sábado",
+] as const;
+const MESES = [
+  "enero",
+  "febrero",
+  "marzo",
+  "abril",
+  "mayo",
+  "junio",
+  "julio",
+  "agosto",
+  "septiembre",
+  "octubre",
+  "noviembre",
+  "diciembre",
+] as const;
+
+/** "2026-09-04" → "viernes 4 de septiembre" (siempre el día elegido, sin conversión UTC). */
 export function fechaLegible(iso: string): string {
   if (!iso) return "";
-  const [y, m, d] = iso.split("-").map(Number);
-  return new Date(y ?? 2026, (m ?? 1) - 1, d ?? 1).toLocaleDateString("es-MX", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-  });
+  const [y, m, d] = partesFecha(iso);
+  const diaSemana = DIAS[new Date(y, m - 1, d).getDay()];
+  return `${diaSemana} ${d} de ${MESES[m - 1]}`;
 }
 
 export function enlaceWhatsApp(mensaje: string) {

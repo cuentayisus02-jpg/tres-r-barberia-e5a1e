@@ -114,8 +114,11 @@ export function Agenda({
                     className={campo}
                     value={fecha}
                     onChange={(e) => {
-                      setFecha(e.target.value);
-                      setHora("");
+                      const nueva = e.target.value;
+                      setFecha(nueva);
+                      setHora((actual) =>
+                        actual && horasDisponibles(nueva).includes(actual) ? actual : ""
+                      );
                     }}
                   />
                   {errores["fecha"] && <Error texto={errores["fecha"]} />}
