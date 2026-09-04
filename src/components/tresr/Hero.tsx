@@ -1,6 +1,6 @@
-import { MessageCircle, MapPin, Zap } from "lucide-react";
+import { CalendarCheck, MapPin, MessageCircle, Zap } from "lucide-react";
 import hero from "@/assets/foto-hero.jpg";
-import { NEGOCIO } from "@/lib/tresr";
+import { enlaceWhatsApp, NEGOCIO } from "@/lib/tresr";
 import { Estrellas, Reveal } from "./primitivos";
 import { Marca } from "./Encabezado";
 
@@ -44,9 +44,15 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={260}>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
-              href={NEGOCIO.whatsapp}
+              href="#agenda"
+              className="flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-4 text-base font-semibold text-accent-foreground transition-transform hover:scale-[1.02] active:scale-95"
+            >
+              <CalendarCheck className="h-5 w-5" /> Agendar cita en la web
+            </a>
+            <a
+              href={enlaceWhatsApp("Hola Tres R Barbería, quiero agendar una cita.")}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 rounded-md bg-whatsapp px-6 py-4 text-base font-semibold text-whatsapp-foreground transition-transform hover:scale-[1.02] active:scale-95"
