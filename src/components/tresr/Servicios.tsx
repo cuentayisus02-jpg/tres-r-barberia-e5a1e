@@ -19,9 +19,9 @@ export function Servicios({ onElegir }: { onElegir: (nombre: string) => void }) 
             <button
               type="button"
               onClick={() => onElegir(s.nombre)}
-              className="group flex h-full w-full flex-col items-start rounded-xl linea-fina bg-card p-6 text-left transition-all hover:-translate-y-1 hover:border-accent/70 active:scale-[0.99]"
+              className="service-card group flex h-full w-full flex-col items-start rounded-xl linea-fina bg-card p-6 text-left transition-all hover:-translate-y-1 hover:border-accent/70 active:scale-[0.99]"
             >
-              <Scissors className="h-6 w-6 text-accent" />
+              <Scissors className="h-6 w-6 text-accent transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" />
               <h3 className="mt-4 text-2xl leading-tight">{s.nombre}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.detalle}</p>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent">
