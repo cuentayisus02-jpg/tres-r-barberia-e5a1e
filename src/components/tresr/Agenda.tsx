@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { MessageCircle, Info } from "lucide-react";
 import {
   SERVICIOS,
@@ -19,9 +19,17 @@ export function Agenda({
   servicio: string;
   setServicio: (v: string) => void;
 }) {
-  const hoy = useMemo(() => hoyISO(), []);
+  // "hoy" depende de la zona horaria del cliente: se calcula tras el montaje
+  // para que SSR y cliente rendericen lo mismo (sin hydration mismatch).
+  const [hoy, setHoy] = useState("");
   const [nombre, setNombre] = useState("");
-  const [fecha, setFecha] = useState(hoy);
+  const [fecha, setFecha] = useState("");
+
+  useEffect(() => {
+    const h = hoyISO();
+    setHoy(h);
+    setFecha((actual) => actual || h);
+  }, []);
   const [hora, setHora] = useState("");
   const [nota, setNota] = useState("");
   const [errores, setErrores] = useState<Record<string, string>>({});

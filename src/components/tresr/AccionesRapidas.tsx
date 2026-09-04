@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { CalendarClock, MapPin, Instagram, ContactRound } from "lucide-react";
 import { NEGOCIO, descargarVCard } from "@/lib/tresr";
 import { Reveal } from "./primitivos";
@@ -6,6 +7,23 @@ const base =
   "flex flex-col items-center justify-center gap-2 rounded-lg linea-fina bg-card px-3 py-5 text-center text-xs font-semibold uppercase tracking-wider transition-colors hover:border-accent hover:text-accent active:scale-95";
 
 export function AccionesRapidas() {
+  const [aviso, setAviso] = useState("");
+  const temporizador = useRef<number | null>(null);
+
+  useEffect(
+    () => () => {
+      if (temporizador.current !== null) window.clearTimeout(temporizador.current);
+    },
+    []
+  );
+
+  function guardarContacto() {
+    descargarVCard();
+    setAviso("Contacto descargado");
+    if (temporizador.current !== null) window.clearTimeout(temporizador.current);
+    temporizador.current = window.setTimeout(() => setAviso(""), 3500);
+  }
+
   return (
     <div className="border-y border-border bg-secondary/40 px-5 py-6 sm:px-8">
       <div className="mx-auto w-full max-w-6xl">
@@ -20,10 +38,18 @@ export function AccionesRapidas() {
             <a href={NEGOCIO.instagram} target="_blank" rel="noopener noreferrer" className={base}>
               <Instagram className="h-6 w-6 text-accent" /> Instagram
             </a>
-            <button type="button" onClick={descargarVCard} className={base}>
+            <button type="button" onClick={guardarContacto} className={base}>
               <ContactRound className="h-6 w-6 text-accent" /> Guardar contacto
             </button>
           </div>
+          <p role="status" aria-live="polite" className="sr-only">
+            {aviso}
+          </p>
+          {aviso && (
+            <p className="mt-3 text-center text-xs font-semibold uppercase tracking-wider text-accent">
+              {aviso}
+            </p>
+          )}
         </Reveal>
       </div>
     </div>

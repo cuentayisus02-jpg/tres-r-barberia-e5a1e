@@ -157,7 +157,7 @@ export function descargarVCard() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "tres-r-barberia.vcf";
+  a.download = "Tres-R-Barberia.vcf";
   document.body.appendChild(a);
   a.click();
   a.remove();
