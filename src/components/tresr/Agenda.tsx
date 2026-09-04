@@ -31,11 +31,11 @@ export function Agenda({
   function enviar(e: React.FormEvent) {
     e.preventDefault();
     const err: Record<string, string> = {};
-    if (nombre.trim().length < 2) err.nombre = "Escribe tu nombre.";
-    if (!servicio) err.servicio = "Elige un servicio.";
-    if (!fecha) err.fecha = "Elige una fecha.";
-    else if (fecha < hoy) err.fecha = "La fecha no puede ser anterior a hoy.";
-    if (!hora) err.hora = "Elige un horario.";
+    if (nombre.trim().length < 2) err["nombre"] = "Escribe tu nombre.";
+    if (!servicio) err["servicio"] = "Elige un servicio.";
+    if (!fecha) err["fecha"] = "Elige una fecha.";
+    else if (fecha < hoy) err["fecha"] = "La fecha no puede ser anterior a hoy.";
+    if (!hora) err["hora"] = "Elige un horario.";
     setErrores(err);
     if (Object.keys(err).length > 0) return;
 
@@ -79,7 +79,7 @@ export function Agenda({
                   maxLength={60}
                   autoComplete="name"
                 />
-                {errores.nombre && <Error texto={errores.nombre} />}
+                {errores["nombre"] && <Error texto={errores["nombre"]} />}
               </div>
 
               <div>
@@ -99,7 +99,7 @@ export function Agenda({
                     </option>
                   ))}
                 </select>
-                {errores.servicio && <Error texto={errores.servicio} />}
+                {errores["servicio"] && <Error texto={errores["servicio"]} />}
               </div>
 
               <div className="grid gap-5 sm:grid-cols-2">
@@ -118,7 +118,7 @@ export function Agenda({
                       setHora("");
                     }}
                   />
-                  {errores.fecha && <Error texto={errores.fecha} />}
+                  {errores["fecha"] && <Error texto={errores["fecha"]} />}
                 </div>
                 <div>
                   <label htmlFor="hora" className="mb-2 block text-sm font-semibold">
@@ -137,7 +137,7 @@ export function Agenda({
                       </option>
                     ))}
                   </select>
-                  {errores.hora && <Error texto={errores.hora} />}
+                  {errores["hora"] && <Error texto={errores["hora"]} />}
                 </div>
               </div>
 
