@@ -1,4 +1,4 @@
-import { ArrowRight, Scissors } from "lucide-react";
+import { Clock3, Scissors } from "lucide-react";
 import { SERVICIOS } from "@/lib/tresr";
 import { EtiquetaSeccion, Reveal, Seccion } from "./primitivos";
 
@@ -6,28 +6,41 @@ export function Servicios({ onElegir }: { onElegir: (nombre: string) => void }) 
   return (
     <Seccion id="servicios">
       <Reveal>
-        <EtiquetaSeccion>Servicios</EtiquetaSeccion>
-        <h2 className="mt-4 max-w-[14ch] text-4xl md:text-6xl">Cortes con oficio, sin prisas</h2>
+        <EtiquetaSeccion>Precios oficiales</EtiquetaSeccion>
+        <h2 className="mt-4 max-w-[14ch] text-4xl md:text-6xl">Nuestros servicios</h2>
         <p className="mt-4 max-w-lg text-muted-foreground">
-          Elige el servicio y te llevamos directo a la agenda con todo preseleccionado.
+          Precios públicos y sin sorpresas. Elige tu servicio y te llevamos directo a la agenda.
         </p>
       </Reveal>
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2">
+      <div className="mt-8 grid gap-3 sm:grid-cols-2">
         {SERVICIOS.map((s, i) => (
           <Reveal key={s.id} delay={i * 70}>
             <button
               type="button"
               onClick={() => onElegir(s.nombre)}
-              className="service-card group flex h-full w-full flex-col items-start rounded-xl linea-fina bg-card p-6 text-left transition-all hover:-translate-y-1 hover:border-accent/70 active:scale-[0.99]"
+              className="service-card group flex h-full w-full flex-col items-start rounded-xl linea-fina bg-card p-5 text-left transition-all hover:-translate-y-1 hover:border-accent/70 active:scale-[0.99]"
             >
-              <Scissors className="h-6 w-6 text-accent transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" />
+              <div className="flex w-full items-start justify-between gap-4">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-accent/10 text-accent ring-1 ring-accent/25">
+                  <Scissors className="h-5 w-5 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" />
+                </span>
+                <strong className="font-display text-2xl tracking-wide text-accent">
+                  {s.precio}
+                </strong>
+              </div>
               <h3 className="mt-4 text-2xl leading-tight">{s.nombre}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.detalle}</p>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent">
-                Consulta disponibilidad
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {s.detalle}
+              </p>
+              <div className="mt-5 flex w-full items-center justify-between gap-3 border-t border-border/60 pt-4">
+                <span className="inline-flex items-center gap-1.5 text-xs text-teal">
+                  <Clock3 className="h-3.5 w-3.5" /> {s.duracion}
+                </span>
+                <span className="rounded-md bg-accent px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-accent-foreground transition-transform group-hover:scale-105">
+                  Seleccionar
+                </span>
+              </div>
             </button>
           </Reveal>
         ))}
