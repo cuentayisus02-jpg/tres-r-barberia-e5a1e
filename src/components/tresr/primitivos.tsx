@@ -32,10 +32,10 @@ export function Reveal({
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ transitionDelay: delay + "ms" }}
       className={cn(
         "transition-all duration-700 ease-out motion-reduce:transition-none",
-        visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
+        visible ? "translate-y-0 scale-100 opacity-100 blur-0" : "translate-y-6 scale-[0.985] opacity-0 blur-[2px]",
         className,
       )}
     >
