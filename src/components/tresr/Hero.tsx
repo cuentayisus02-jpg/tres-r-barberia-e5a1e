@@ -16,6 +16,10 @@ export function Hero() {
       />
 
       <div className="hero-vignette absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background" />
+      <div aria-hidden="true" className="hero-orb hero-orb-one" />
+      <div aria-hidden="true" className="hero-orb hero-orb-two" />
+      <div aria-hidden="true" className="hero-orb hero-orb-ring rounded-full" />
+      <div aria-hidden="true" className="hero-sweep" />
 
       <div className="relative mx-auto w-full max-w-6xl px-5 pb-16 pt-28 sm:px-8 md:pb-28 md:pt-36">
         <Reveal>
