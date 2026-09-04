@@ -62,7 +62,7 @@ export const RESENAS = [
 export function horasDisponibles(fechaISO: string): string[] {
   if (!fechaISO) return [];
   const [y, m, d] = fechaISO.split("-").map(Number);
-  const dia = new Date(y, (m ?? 1) - 1, d).getDay(); // 0 domingo
+  const dia = new Date(y ?? 2026, (m ?? 1) - 1, d ?? 1).getDay(); // 0 domingo
   let inicio = 14;
   let fin = 22;
   if (dia === 6) inicio = 12;
@@ -92,7 +92,7 @@ export function hoyISO(): string {
 export function fechaLegible(iso: string): string {
   if (!iso) return "";
   const [y, m, d] = iso.split("-").map(Number);
-  return new Date(y, (m ?? 1) - 1, d).toLocaleDateString("es-MX", {
+  return new Date(y ?? 2026, (m ?? 1) - 1, d ?? 1).toLocaleDateString("es-MX", {
     weekday: "long",
     day: "numeric",
     month: "long",
