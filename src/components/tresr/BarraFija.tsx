@@ -1,4 +1,4 @@
-import { MessageCircle, CalendarClock } from "lucide-react";
+import { CalendarClock, Home, MapPin, MessageCircle, Scissors } from "lucide-react";
 import { NEGOCIO } from "@/lib/tresr";
 
 export function BarraFija() {
@@ -8,30 +8,49 @@ export function BarraFija() {
         href={NEGOCIO.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Escríbenos por WhatsApp"
+        aria-label="Escríbenos directamente por WhatsApp"
         className="fixed bottom-24 right-4 z-40 grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-transform hover:scale-105 active:scale-95 md:bottom-8"
       >
         <MessageCircle className="h-7 w-7" />
       </a>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-md md:hidden">
-        <div className="grid grid-cols-2 gap-3">
-          <a
-            href="#agenda"
-            className="flex items-center justify-center gap-2 rounded-md linea-fina px-3 py-3 text-sm font-semibold"
-          >
-            <CalendarClock className="h-4 w-4" /> Agendar cita
-          </a>
-          <a
-            href={NEGOCIO.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-md bg-whatsapp px-3 py-3 text-sm font-semibold text-whatsapp-foreground"
-          >
-            <MessageCircle className="h-4 w-4" /> WhatsApp
-          </a>
+      <nav
+        aria-label="Navegación rápida"
+        className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 px-3 pb-[calc(.65rem+env(safe-area-inset-bottom))] pt-2 backdrop-blur-xl md:hidden"
+      >
+        <div className="mx-auto grid max-w-md grid-cols-4 gap-1">
+          <NavMovil href="#inicio" texto="Inicio" icono={Home} />
+          <NavMovil href="#servicios" texto="Servicios" icono={Scissors} />
+          <NavMovil href="#ubicacion" texto="Ubicación" icono={MapPin} />
+          <NavMovil href="#agenda" texto="Citas" icono={CalendarClock} destacado />
         </div>
-      </div>
+      </nav>
     </>
+  );
+}
+
+function NavMovil({
+  href,
+  texto,
+  icono: Icono,
+  destacado = false,
+}: {
+  href: string;
+  texto: string;
+  icono: typeof Home;
+  destacado?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      className={`flex min-h-12 flex-col items-center justify-center gap-1 rounded-lg px-1 text-[0.68rem] font-semibold transition-colors ${
+        destacado
+          ? "bg-accent text-accent-foreground"
+          : "text-muted-foreground hover:bg-secondary hover:text-accent"
+      }`}
+    >
+      <Icono className="h-4 w-4" />
+      {texto}
+    </a>
   );
 }
