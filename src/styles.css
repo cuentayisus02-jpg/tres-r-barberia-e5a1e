@@ -4,6 +4,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-display: "Bebas Neue", "Impact", sans-serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+  --color-whatsapp: oklch(0.72 0.16 152);
+  --color-whatsapp-foreground: oklch(0.16 0.01 90);
+}
+
+
 /*
  * Design system definition.
  *
@@ -141,4 +149,70 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+/* ── Tres R Barbería: identidad monocromática con acento cobre ── */
+:root,
+.dark {
+  --radius: 0.5rem;
+  --background: oklch(0.16 0.006 80);
+  --foreground: oklch(0.94 0.014 85);
+  --card: oklch(0.2 0.007 80);
+  --card-foreground: oklch(0.94 0.014 85);
+  --popover: oklch(0.2 0.007 80);
+  --popover-foreground: oklch(0.94 0.014 85);
+  --primary: oklch(0.94 0.016 85);
+  --primary-foreground: oklch(0.16 0.006 80);
+  --secondary: oklch(0.24 0.008 80);
+  --secondary-foreground: oklch(0.94 0.014 85);
+  --muted: oklch(0.24 0.008 80);
+  --muted-foreground: oklch(0.72 0.014 85);
+  --accent: oklch(0.7 0.098 62);
+  --accent-foreground: oklch(0.15 0.01 60);
+  --destructive: oklch(0.6 0.2 27);
+  --destructive-foreground: oklch(0.97 0.01 85);
+  --border: oklch(0.32 0.012 80);
+  --input: oklch(0.3 0.012 80);
+  --ring: oklch(0.7 0.098 62);
+  --marfil: oklch(0.95 0.018 85);
+  --marfil-foreground: oklch(0.16 0.006 80);
+}
+
+@theme inline {
+  --color-marfil: var(--marfil);
+  --color-marfil-foreground: var(--marfil-foreground);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  .fuente-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+    font-weight: 400;
+  }
+}
+
+@utility grano {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@utility linea-fina {
+  border: 1px solid color-mix(in oklab, var(--foreground) 12%, transparent);
 }
