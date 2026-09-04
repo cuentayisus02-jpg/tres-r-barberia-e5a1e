@@ -98,7 +98,8 @@ export function descargarVCard(): void {
     "ORG:Tres R Barbería",
     "TEL;TYPE=CELL,VOICE:+528128750500",
     "ADR;TYPE=WORK:;;Av. de los Astros 101, Plaza Point 54, Local 7;Monterrey;N.L.;64100;México",
-    "URL:" + NEGOCIO.instagram,
+    "URL:https://tres-r-barberia.netlify.app/",
+    "X-SOCIALPROFILE;TYPE=instagram:" + NEGOCIO.instagram,
     "NOTE:Barbería en Monterrey. Lun–Vie 2:00 p.m.–10:00 p.m. · Sáb 1:00 p.m.–9:00 p.m. · Dom cerrado. Instagram " + NEGOCIO.instagramHandle,
     "END:VCARD",
   ].join("\r\n");
