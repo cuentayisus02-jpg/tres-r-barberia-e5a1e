@@ -118,7 +118,7 @@ export function Agenda({
                   <input
                     id="fecha"
                     type="date"
-                    min={hoy}
+                    min={hoy || undefined}
                     className={campo}
                     value={fecha}
                     onChange={(e) => {
