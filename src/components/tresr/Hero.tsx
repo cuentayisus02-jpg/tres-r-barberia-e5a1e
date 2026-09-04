@@ -1,5 +1,5 @@
 import { MessageCircle, MapPin, Zap } from "lucide-react";
-import hero from "@/assets/hero-barberia.jpg";
+import hero from "@/assets/foto-hero.jpg";
 import { NEGOCIO } from "@/lib/tresr";
 import { Estrellas, Reveal } from "./primitivos";
 import { Marca } from "./Encabezado";
@@ -9,11 +9,12 @@ export function Hero() {
     <section id="inicio" className="relative grano overflow-hidden">
       <img
         src={hero}
-        alt="Barbero realizando un corte degradado con luz cálida"
+        alt="Barbero de Tres R Barbería atendiendo a un cliente en el local de Monterrey"
         width={1200}
-        height={1504}
-        className="absolute inset-0 h-full w-full object-cover object-[60%_center] opacity-45"
+        height={1600}
+        className="absolute inset-0 h-full w-full object-cover object-[65%_25%] opacity-40 md:object-[60%_30%]"
       />
+
       <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background" />
 
       <div className="relative mx-auto w-full max-w-6xl px-5 pb-16 pt-28 sm:px-8 md:pb-28 md:pt-36">

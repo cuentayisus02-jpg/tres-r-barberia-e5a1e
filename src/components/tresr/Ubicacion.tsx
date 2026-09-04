@@ -1,5 +1,5 @@
 import { MapPin, Clock, Navigation, Phone } from "lucide-react";
-import local from "@/assets/local.jpg";
+import local from "@/assets/foto-fachada.jpg";
 import { HORARIOS, NEGOCIO } from "@/lib/tresr";
 import { EtiquetaSeccion, Reveal, Seccion } from "./primitivos";
 
@@ -16,12 +16,13 @@ export function Ubicacion() {
           <div className="flex h-full flex-col overflow-hidden rounded-xl linea-fina bg-card">
             <img
               src={local}
-              alt="Interior de barbería con sillón clásico e iluminación cálida"
+              alt="Fachada de Tres R Barbería en Plaza Point 54, Barrio Estrella, Monterrey"
               loading="lazy"
               width={1200}
-              height={912}
-              className="h-52 w-full object-cover sm:h-64"
+              height={1600}
+              className="h-52 w-full object-cover object-center sm:h-72"
             />
+
             <div className="flex flex-1 flex-col gap-4 p-6">
               <p className="flex gap-3 text-sm leading-relaxed">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-accent" />

@@ -1,5 +1,5 @@
 import { Handshake, Ruler, Sofa } from "lucide-react";
-import herramientas from "@/assets/herramientas.jpg";
+import herramientas from "@/assets/foto-interior.jpg";
 import { NEGOCIO } from "@/lib/tresr";
 import { EtiquetaSeccion, Reveal, Seccion } from "./primitivos";
 
@@ -29,13 +29,14 @@ export function Experiencia() {
           <div className="overflow-hidden rounded-xl linea-fina">
             <img
               src={herramientas}
-              alt="Navaja, tijeras y peine de barbería sobre superficie oscura"
+              alt="Interior de Tres R Barbería con sus estaciones de trabajo, espejos y sillones"
               loading="lazy"
               width={1200}
-              height={912}
-              className="h-full w-full object-cover"
+              height={1600}
+              className="h-72 w-full object-cover object-center sm:h-96 md:h-[30rem]"
             />
           </div>
+
         </Reveal>
 
         <div>

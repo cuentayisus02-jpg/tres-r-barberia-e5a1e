@@ -51,8 +51,9 @@ export function PieDePagina() {
 
         <div className="text-sm text-muted-foreground">
           <p>Lun–Vie 2:00 p.m.–10:00 p.m.</p>
-          <p>Sáb 12:00 p.m.–10:00 p.m.</p>
-          <p>Dom 11:00 a.m.–5:00 p.m.</p>
+          <p>Sáb 1:00 p.m.–9:00 p.m.</p>
+          <p>Dom cerrado</p>
+
           <a
             href={NEGOCIO.instagram}
             target="_blank"

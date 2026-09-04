@@ -6,6 +6,7 @@ import {
   fechaLegible,
   horasDisponibles,
   hoyISO,
+  esDomingo,
 } from "@/lib/tresr";
 import { EtiquetaSeccion, Reveal, Seccion } from "./primitivos";
 
@@ -35,6 +36,7 @@ export function Agenda({
   const [errores, setErrores] = useState<Record<string, string>>({});
 
   const horas = useMemo(() => horasDisponibles(fecha), [fecha]);
+  const cerrado = esDomingo(fecha);
 
   function enviar(e: React.FormEvent) {
     e.preventDefault();
@@ -43,7 +45,8 @@ export function Agenda({
     if (!servicio) err["servicio"] = "Elige un servicio.";
     if (!fecha) err["fecha"] = "Elige una fecha.";
     else if (fecha < hoy) err["fecha"] = "La fecha no puede ser anterior a hoy.";
-    if (!hora) err["hora"] = "Elige un horario.";
+    if (cerrado) err["fecha"] = "Cerrado los domingos. Elige otro día.";
+    if (!cerrado && !hora) err["hora"] = "Elige un horario.";
     setErrores(err);
     if (Object.keys(err).length > 0) return;
 
@@ -139,16 +142,24 @@ export function Agenda({
                     id="hora"
                     className={campo}
                     value={hora}
+                    disabled={cerrado}
                     onChange={(e) => setHora(e.target.value)}
                   >
-                    <option value="">Selecciona una hora</option>
+                    <option value="">
+                      {cerrado ? "Cerrado los domingos" : "Selecciona una hora"}
+                    </option>
                     {horas.map((h) => (
                       <option key={h} value={h}>
                         {h}
                       </option>
                     ))}
                   </select>
-                  {errores["hora"] && <Error texto={errores["hora"]} />}
+                  {cerrado && (
+                    <p role="status" aria-live="polite" className="mt-2 text-sm text-accent">
+                      Cerrado los domingos
+                    </p>
+                  )}
+                  {!cerrado && errores["hora"] && <Error texto={errores["hora"]} />}
                 </div>
               </div>
 
@@ -169,7 +180,8 @@ export function Agenda({
 
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-md bg-whatsapp px-6 py-4 text-base font-semibold text-whatsapp-foreground transition-transform hover:scale-[1.01] active:scale-95"
+                disabled={cerrado}
+                className="flex w-full items-center justify-center gap-2 rounded-md bg-whatsapp px-6 py-4 text-base font-semibold text-whatsapp-foreground transition-transform hover:scale-[1.01] active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <MessageCircle className="h-5 w-5" /> Enviar solicitud por WhatsApp
               </button>
