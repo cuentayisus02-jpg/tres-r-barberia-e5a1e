@@ -12,10 +12,10 @@ export function Hero() {
         alt="Barbero de Tres R Barbería atendiendo a un cliente en el local de Monterrey"
         width={1200}
         height={1600}
-        className="absolute inset-0 h-full w-full object-cover object-[65%_25%] opacity-40 md:object-[60%_30%]"
+        className="hero-photo absolute inset-0 h-full w-full object-cover object-[65%_25%] opacity-40 transition-transform duration-1000 md:object-[60%_30%]"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background" />
+      <div className="hero-vignette absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background" />
 
       <div className="relative mx-auto w-full max-w-6xl px-5 pb-16 pt-28 sm:px-8 md:pb-28 md:pt-36">
         <Reveal>
