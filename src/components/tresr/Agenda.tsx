@@ -24,6 +24,7 @@ export function Agenda({
   // para que SSR y cliente rendericen lo mismo (sin hydration mismatch).
   const [hoy, setHoy] = useState("");
   const [nombre, setNombre] = useState("");
+  const [telefono, setTelefono] = useState("");
   const [fecha, setFecha] = useState("");
 
   useEffect(() => {
@@ -42,16 +43,24 @@ export function Agenda({
     e.preventDefault();
     const err: Record<string, string> = {};
     if (nombre.trim().length < 2) err["nombre"] = "Escribe tu nombre.";
+    const digitosTelefono = telefono.replace(/\D/g, "");
+    if (digitosTelefono.length < 10 || digitosTelefono.length > 13) {
+      err["telefono"] = "Escribe un teléfono válido (10 a 13 dígitos).";
+    }
     if (!servicio) err["servicio"] = "Elige un servicio.";
     if (!fecha) err["fecha"] = "Elige una fecha.";
     else if (fecha < hoy) err["fecha"] = "La fecha no puede ser anterior a hoy.";
     if (cerrado) err["fecha"] = "Cerrado los domingos. Elige otro día.";
     if (!cerrado && !hora) err["hora"] = "Elige un horario.";
     setErrores(err);
-    if (Object.keys(err).length > 0) return;
+    if (Object.keys(err).length > 0) {
+      const primerCampo = Object.keys(err)[0];
+      window.requestAnimationFrame(() => document.getElementById(primerCampo)?.focus());
+      return;
+    }
 
     const notaLimpia = nota.trim();
-    const mensaje = `Hola Tres R Barbería, soy ${nombre.trim()}. Quiero solicitar una cita para ${servicio} el ${fechaLegible(fecha)} a las ${hora}.${notaLimpia ? ` ${notaLimpia}` : ""}`;
+    const mensaje = `Hola Tres R Barbería, soy ${nombre.trim()}. Mi teléfono es ${telefono.trim()}. Quiero solicitar una cita para ${servicio} el ${fechaLegible(fecha)} a las ${hora}.${notaLimpia ? ` ${notaLimpia}` : ""}`;
     window.open(enlaceWhatsApp(mensaje), "_blank", "noopener,noreferrer");
   }
 
@@ -71,11 +80,7 @@ export function Agenda({
         </Reveal>
 
         <Reveal delay={100}>
-          <form
-            onSubmit={enviar}
-            noValidate
-            className="rounded-xl linea-fina bg-card p-5 sm:p-7"
-          >
+          <form onSubmit={enviar} noValidate className="rounded-xl linea-fina bg-card p-5 sm:p-7">
             <div className="space-y-5">
               <div>
                 <label htmlFor="nombre" className="mb-2 block text-sm font-semibold">
@@ -89,8 +94,32 @@ export function Agenda({
                   placeholder="Tu nombre"
                   maxLength={60}
                   autoComplete="name"
+                  required
+                  aria-invalid={Boolean(errores["nombre"])}
+                  aria-describedby={errores["nombre"] ? "nombre-error" : undefined}
                 />
-                {errores["nombre"] && <Error texto={errores["nombre"]} />}
+                {errores["nombre"] && <Error id="nombre-error" texto={errores["nombre"]} />}
+              </div>
+
+              <div>
+                <label htmlFor="telefono" className="mb-2 block text-sm font-semibold">
+                  Teléfono
+                </label>
+                <input
+                  id="telefono"
+                  type="tel"
+                  inputMode="tel"
+                  className={campo}
+                  value={telefono}
+                  onChange={(e) => setTelefono(e.target.value)}
+                  placeholder="81 1234 5678"
+                  maxLength={20}
+                  autoComplete="tel"
+                  required
+                  aria-invalid={Boolean(errores["telefono"])}
+                  aria-describedby={errores["telefono"] ? "telefono-error" : undefined}
+                />
+                {errores["telefono"] && <Error id="telefono-error" texto={errores["telefono"]} />}
               </div>
 
               <div>
@@ -102,6 +131,9 @@ export function Agenda({
                   className={campo}
                   value={servicio}
                   onChange={(e) => setServicio(e.target.value)}
+                  required
+                  aria-invalid={Boolean(errores["servicio"])}
+                  aria-describedby={errores["servicio"] ? "servicio-error" : undefined}
                 >
                   <option value="">Selecciona un servicio</option>
                   {SERVICIOS.map((s) => (
@@ -110,7 +142,7 @@ export function Agenda({
                     </option>
                   ))}
                 </select>
-                {errores["servicio"] && <Error texto={errores["servicio"]} />}
+                {errores["servicio"] && <Error id="servicio-error" texto={errores["servicio"]} />}
               </div>
 
               <div className="grid gap-5 sm:grid-cols-2">
@@ -124,15 +156,18 @@ export function Agenda({
                     min={hoy || undefined}
                     className={campo}
                     value={fecha}
+                    required
+                    aria-invalid={Boolean(errores["fecha"])}
+                    aria-describedby={errores["fecha"] ? "fecha-error" : undefined}
                     onChange={(e) => {
                       const nueva = e.target.value;
                       setFecha(nueva);
                       setHora((actual) =>
-                        actual && horasDisponibles(nueva).includes(actual) ? actual : ""
+                        actual && horasDisponibles(nueva).includes(actual) ? actual : "",
                       );
                     }}
                   />
-                  {errores["fecha"] && <Error texto={errores["fecha"]} />}
+                  {errores["fecha"] && <Error id="fecha-error" texto={errores["fecha"]} />}
                 </div>
                 <div>
                   <label htmlFor="hora" className="mb-2 block text-sm font-semibold">
@@ -144,6 +179,9 @@ export function Agenda({
                     value={hora}
                     disabled={cerrado}
                     onChange={(e) => setHora(e.target.value)}
+                    required={!cerrado}
+                    aria-invalid={!cerrado && Boolean(errores["hora"])}
+                    aria-describedby={!cerrado && errores["hora"] ? "hora-error" : undefined}
                   >
                     <option value="">
                       {cerrado ? "Cerrado los domingos" : "Selecciona una hora"}
@@ -159,7 +197,7 @@ export function Agenda({
                       Cerrado los domingos
                     </p>
                   )}
-                  {!cerrado && errores["hora"] && <Error texto={errores["hora"]} />}
+                  {!cerrado && errores["hora"] && <Error id="hora-error" texto={errores["hora"]} />}
                 </div>
               </div>
 
@@ -183,8 +221,13 @@ export function Agenda({
                 disabled={cerrado}
                 className="flex w-full items-center justify-center gap-2 rounded-md bg-whatsapp px-6 py-4 text-base font-semibold text-whatsapp-foreground transition-transform hover:scale-[1.01] active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
               >
-                <MessageCircle className="h-5 w-5" /> Enviar solicitud por WhatsApp
+                <MessageCircle className="size-5" aria-hidden="true" /> Enviar solicitud por
+                WhatsApp
               </button>
+              <p className="text-center text-xs leading-relaxed text-muted-foreground">
+                Tus datos no se guardan en esta página; se usan únicamente para preparar el mensaje
+                que tú decides enviar por WhatsApp.
+              </p>
             </div>
           </form>
         </Reveal>
@@ -193,9 +236,9 @@ export function Agenda({
   );
 }
 
-function Error({ texto }: { texto: string }) {
+function Error({ id, texto }: { id: string; texto: string }) {
   return (
-    <p role="alert" className="mt-2 text-sm text-destructive">
+    <p id={id} role="alert" className="mt-2 text-sm text-destructive">
       {texto}
     </p>
   );
