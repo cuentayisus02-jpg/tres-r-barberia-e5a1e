@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { CalendarCheck, MapPin, MessageCircle, Zap } from "lucide-react";
 import hero from "@/assets/foto-hero.jpg";
 import { enlaceWhatsApp, NEGOCIO } from "@/lib/tresr";
@@ -5,15 +6,35 @@ import { Reveal } from "./primitivos";
 import { Marca } from "./Encabezado";
 
 export function Hero() {
+  const seccionRef = useRef<HTMLElement>(null);
+  const [movimientoActivo, setMovimientoActivo] = useState(false);
+
+  useEffect(() => {
+    const seccion = seccionRef.current;
+    if (!seccion) return;
+    const observador = new IntersectionObserver(
+      ([entrada]) => setMovimientoActivo(Boolean(entrada?.isIntersecting)),
+      { rootMargin: "120px 0px", threshold: 0.05 },
+    );
+    observador.observe(seccion);
+    return () => observador.disconnect();
+  }, []);
+
   return (
-    <section id="inicio" className="relative grano overflow-hidden">
-      <img
-        src={hero}
-        alt="Barbero de Tres R Barbería atendiendo a un cliente en el local de Monterrey"
-        width={1200}
-        height={1600}
-        className="hero-photo absolute inset-0 h-full w-full object-cover object-[65%_25%] opacity-40 transition-transform duration-1000 md:object-[60%_30%]"
-      />
+    <section
+      ref={seccionRef}
+      id="inicio"
+      className={`relative min-h-dvh grano overflow-hidden${movimientoActivo ? " hero-motion-active" : ""}`}
+    >
+      <div className="hero-parallax absolute inset-[-6%]">
+        <img
+          src={hero}
+          alt="Barbero de Tres R Barbería atendiendo a un cliente en el local de Monterrey"
+          width={1200}
+          height={1600}
+          className="hero-photo h-full w-full object-cover object-[65%_25%] opacity-40 md:object-[60%_30%]"
+        />
+      </div>
 
       <div className="hero-vignette absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background" />
       <div aria-hidden="true" className="hero-orb hero-orb-one" />
@@ -21,7 +42,7 @@ export function Hero() {
       <div aria-hidden="true" className="hero-orb hero-orb-ring rounded-full" />
       <div aria-hidden="true" className="hero-sweep" />
 
-      <div className="relative mx-auto w-full max-w-6xl px-5 pb-16 pt-28 sm:px-8 md:pb-28 md:pt-36">
+      <div className="relative mx-auto flex min-h-dvh w-full max-w-6xl flex-col justify-center px-5 pb-24 pt-28 sm:px-8 md:pb-28 md:pt-36">
         <Reveal>
           <Marca className="h-24 w-24 md:h-28 md:w-28" />
         </Reveal>
@@ -33,7 +54,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={140}>
-          <h1 className="mt-5 max-w-[12ch] text-[3.4rem] leading-[0.9] md:text-[6rem]">
+          <h1 className="mt-5 max-w-[12ch] text-balance text-[3.4rem] leading-[0.9] md:text-[6rem]">
             Tu estilo.
             <br />
             <span className="text-accent">Tu lugar.</span>
@@ -41,7 +62,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={200}>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="mt-5 max-w-md text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
             Barbería en Monterrey donde un amigo es tu barbero. Corte, barba y buen ambiente, sin
             prisas y con oficio.
           </p>
