@@ -83,6 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Barbería en Monterrey: cortes, barba y citas por WhatsApp. Tres R Barbería, Barrio Estrella.",
       },
+      { name: "theme-color", content: "#0b101a" },
       { property: "og:site_name", content: "Tres R Barbería" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -115,6 +116,12 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a
+          href="#contenido-principal"
+          className="sr-only z-50 rounded-md bg-accent px-4 py-3 font-semibold text-accent-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        >
+          Saltar al contenido principal
+        </a>
         {children}
         <Scripts />
       </body>
