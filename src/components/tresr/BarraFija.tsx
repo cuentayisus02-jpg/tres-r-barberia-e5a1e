@@ -9,9 +9,9 @@ export function BarraFija() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Escríbenos directamente por WhatsApp"
-        className="fixed bottom-24 right-4 z-40 grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-transform hover:scale-105 active:scale-95 md:bottom-8"
+        className="whatsapp-attention fixed bottom-24 right-4 z-40 grid size-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-transform hover:scale-105 active:scale-95 md:bottom-8"
       >
-        <MessageCircle className="h-7 w-7" />
+        <MessageCircle className="size-7" aria-hidden="true" />
       </a>
 
       <nav
