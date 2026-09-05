@@ -27,7 +27,7 @@ jobs:
       - run: bun install --frozen-lockfile
       - run: bun run build
       - run: cp .output/public/_shell.html .output/public/index.html
-      - run: sed -i -e 's#https://cuentayis02-jpg.github.io/assets/#./assets/#g' -e 's#"/./assets/#"./assets/#g' -e 's#"/assets/#"./assets/#g' .output/public/index.html
+      - run: node -e "const fs=require('fs');const p='.output/public/index.html';let s=fs.readFileSync(p,'utf8');s=s.replaceAll('src=\"/./assets/','src=\"./assets/').replaceAll('src=\"/assets/','src=\"./assets/');fs.writeFileSync(p,s)"
       - run: touch .output/public/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
