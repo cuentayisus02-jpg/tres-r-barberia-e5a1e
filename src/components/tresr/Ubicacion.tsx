@@ -1,7 +1,8 @@
 import { MapPin, Clock, Navigation, Phone } from "lucide-react";
-import local from "@/assets/foto-fachada.jpg";
 import { HORARIOS, NEGOCIO } from "@/lib/tresr";
 import { EtiquetaSeccion, Reveal, Seccion } from "./primitivos";
+
+const MAPA_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(NEGOCIO.direccion)}&output=embed`;
 
 export function Ubicacion() {
   return (
@@ -14,14 +15,28 @@ export function Ubicacion() {
       <div className="mt-10 grid gap-4 md:grid-cols-2">
         <Reveal>
           <div className="flex h-full flex-col overflow-hidden rounded-xl linea-fina bg-card">
-            <img
-              src={local}
-              alt="Fachada de Tres R Barbería en Plaza Point 54, Barrio Estrella, Monterrey"
-              loading="lazy"
-              width={1200}
-              height={1600}
-              className="h-52 w-full object-cover object-center sm:h-72"
-            />
+            <div className="group relative h-64 overflow-hidden border-b border-border sm:h-72">
+              <iframe
+                src={MAPA_EMBED}
+                title="Mapa de Tres R Barbería en Plaza Point 54"
+                aria-hidden="true"
+                tabIndex={-1}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="pointer-events-none h-full w-full opacity-85 grayscale-[0.15] transition-opacity duration-500 group-hover:opacity-100"
+              />
+              <a
+                href={NEGOCIO.maps}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir la ubicación de Tres R Barbería en Google Maps"
+                className="absolute inset-0 flex items-end justify-center bg-background/10 p-4"
+              >
+                <span className="rounded-full bg-background/90 px-4 py-2 text-xs font-semibold text-foreground shadow-lg">
+                  Toca el mapa para abrir Google Maps
+                </span>
+              </a>
+            </div>
 
             <div className="flex flex-1 flex-col gap-4 p-6">
               <p className="flex gap-3 text-sm leading-relaxed">
