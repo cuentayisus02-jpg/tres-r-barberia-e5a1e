@@ -91,7 +91,6 @@
         color-mix(in oklab, var(--teal) 10%, transparent),
         transparent 32rem
       );
-    background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -130,33 +129,12 @@
   border: 1px solid color-mix(in oklab, var(--foreground) 18%, transparent);
 }
 
-@keyframes logo-float {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-1deg);
+@keyframes hero-parallax-scroll {
+  from {
+    transform: translate3d(0, -3%, 0) scale(1.08);
   }
-  50% {
-    transform: translateY(-4px) rotate(1deg);
-  }
-}
-@keyframes cinematic-drift {
-  0%,
-  100% {
-    transform: scale(1.02) translate3d(0, 0, 0);
-  }
-  50% {
-    transform: scale(1.08) translate3d(-1%, -0.5%, 0);
-  }
-}
-@keyframes glow-pulse {
-  0%,
-  100% {
-    opacity: 0.32;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.07);
+  to {
+    transform: translate3d(0, 7%, 0) scale(1.08);
   }
 }
 @keyframes amber-sweep {
@@ -187,29 +165,19 @@
     transform: rotate(360deg);
   }
 }
-@keyframes card-breathe {
-  0%,
+@keyframes whatsapp-ring {
+  0% {
+    opacity: 0.65;
+    transform: scale(0.9);
+  }
+  75%,
   100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-@keyframes scroll-cue {
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 0.45;
-  }
-  50% {
-    transform: translateY(6px);
-    opacity: 1;
+    opacity: 0;
+    transform: scale(1.45);
   }
 }
 
 .logo-float {
-  animation: logo-float 4s ease-in-out infinite;
   transform-origin: center;
 }
 .logo-shell {
@@ -235,7 +203,7 @@
   z-index: -1;
   border: 1px solid color-mix(in oklab, var(--accent) 62%, transparent);
   border-radius: inherit;
-  animation: glow-pulse 4s ease-in-out infinite;
+  opacity: 0.55;
   pointer-events: none;
 }
 .logo-shell img {
@@ -261,15 +229,18 @@
   bottom: -0.35rem;
   height: 2px;
   background: var(--accent);
-  box-shadow: 0 0 16px color-mix(in oklab, var(--accent) 65%, transparent);
+  box-shadow: 0 0 12px color-mix(in oklab, var(--accent) 65%, transparent);
   transition: right 0.35s ease;
 }
 .nav-link:hover::after,
 .nav-link:focus-visible::after {
   right: 0;
 }
+.hero-parallax {
+  transform: translate3d(0, -3%, 0) scale(1.08);
+}
 .hero-photo {
-  animation: cinematic-drift 18s ease-in-out infinite alternate;
+  transform: scale(1.03);
   filter: saturate(1.12) contrast(1.08);
 }
 .hero-vignette {
@@ -294,6 +265,7 @@
     transparent 68%
   );
   animation: orb-drift 13s ease-in-out infinite;
+  animation-play-state: paused;
 }
 .hero-orb-two {
   bottom: 4%;
@@ -306,6 +278,7 @@
     transparent 70%
   );
   animation: orb-drift 17s ease-in-out infinite reverse;
+  animation-play-state: paused;
 }
 .hero-orb-ring {
   top: 20%;
@@ -314,6 +287,7 @@
   height: 11rem;
   border: 1px solid color-mix(in oklab, var(--accent) 42%, transparent);
   animation: ring-spin 24s linear infinite;
+  animation-play-state: paused;
 }
 .hero-sweep {
   position: absolute;
@@ -330,14 +304,53 @@
     transparent
   );
   animation: amber-sweep 12s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.hero-motion-active .hero-orb-one,
+.hero-motion-active .hero-orb-two,
+.hero-motion-active .hero-orb-ring,
+.hero-motion-active .hero-sweep {
+  animation-play-state: running;
+}
+
+@supports (animation-timeline: view()) {
+  .hero-parallax {
+    animation: hero-parallax-scroll linear both;
+    animation-timeline: view(block);
+    animation-range: entry 0% exit 100%;
+  }
+}
+
+.gallery-frame img {
+  transition:
+    transform 0.5s ease-out,
+    opacity 0.5s ease-out;
+}
+.gallery-frame:hover img {
+  opacity: 0.92;
+  transform: scale(1.035);
+}
+
+.whatsapp-attention {
+  isolation: isolate;
+}
+.whatsapp-attention::after {
+  content: "";
+  position: absolute;
+  inset: -0.4rem;
+  border: 2px solid var(--color-whatsapp);
+  border-radius: inherit;
+  pointer-events: none;
+  animation: whatsapp-ring 2.6s ease-out infinite;
 }
 
 .linea-fina {
   transition:
-    border-color 0.35s ease,
-    background-color 0.35s ease,
-    box-shadow 0.35s ease,
-    transform 0.35s ease;
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
 }
 .linea-fina:hover {
   border-color: color-mix(in oklab, var(--accent) 70%, var(--border));
@@ -349,9 +362,9 @@
   overflow: hidden;
   isolation: isolate;
   transition:
-    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-    border-color 0.35s ease,
-    box-shadow 0.5s ease;
+    transform 0.18s ease-out,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
 }
 .service-card::before {
   content: "";
@@ -365,7 +378,7 @@
     transparent 80%
   );
   transform: translateX(-100%);
-  transition: transform 0.8s ease;
+  transition: transform 0.5s ease;
 }
 .service-card:hover {
   transform: translateY(-8px) rotateX(2deg);
@@ -376,13 +389,6 @@
 .service-card:hover::before {
   transform: translateX(100%);
 }
-.service-card:nth-child(2) {
-  animation: card-breathe 7s ease-in-out 1s infinite;
-}
-.service-card:nth-child(4) {
-  animation: card-breathe 8s ease-in-out 2s infinite;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
