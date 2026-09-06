@@ -8,7 +8,11 @@ export const getRouter = () => {
   const router = createRouter({
     routeTree,
     context: { queryClient },
-    basepath: import.meta.env.VITE_BASE_PATH || "/",
+    basepath:
+      typeof window !== "undefined" &&
+      window.location.pathname.startsWith("/tres-r-barberia-e5a1e")
+        ? "/tres-r-barberia-e5a1e"
+        : "/",
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
   });
