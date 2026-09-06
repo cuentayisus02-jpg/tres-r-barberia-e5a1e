@@ -60,7 +60,7 @@ export function Encabezado() {
           aria-label="Ir al inicio de Tres R Barbería"
           className="group flex min-w-0 items-center gap-3"
         >
-          <Marca className="size-11 shrink-0 transition-transform duration-200 group-hover:rotate-[-3deg] group-hover:scale-105" />
+          <Marca className="size-11 shrink-0" />
           <span className="min-w-0">
             <span className="block truncate font-display text-xl leading-none tracking-wide">
               Tres R
@@ -83,7 +83,7 @@ export function Encabezado() {
           ))}
           <a
             href="#agenda"
-            className="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(194,137,70,0.22)] active:scale-95"
+            className="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(194,137,70,0.22)] active:scale-95"
           >
             Agendar
           </a>

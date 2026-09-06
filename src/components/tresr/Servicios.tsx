@@ -19,11 +19,11 @@ export function Servicios({ onElegir }: { onElegir: (nombre: string) => void }) 
             <button
               type="button"
               onClick={() => onElegir(s.nombre)}
-              className="service-card group flex h-full w-full flex-col items-start rounded-xl linea-fina bg-card p-5 text-left transition-all hover:-translate-y-1 hover:border-accent/70 active:scale-[0.99]"
+              className="service-card flex h-full w-full flex-col items-start rounded-xl linea-fina bg-card p-5 text-left active:scale-[0.99]"
             >
               <div className="flex w-full items-start justify-between gap-4">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-accent/10 text-accent ring-1 ring-accent/25">
-                  <Scissors className="h-5 w-5 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" />
+                  <Scissors className="service-icon h-5 w-5" />
                 </span>
                 <strong className="font-display text-2xl tracking-wide text-accent">
                   {s.precio}
@@ -37,7 +37,7 @@ export function Servicios({ onElegir }: { onElegir: (nombre: string) => void }) 
                 <span className="inline-flex items-center gap-1.5 text-xs text-teal">
                   <Clock3 className="h-3.5 w-3.5" /> {s.duracion}
                 </span>
-                <span className="rounded-md bg-accent px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-accent-foreground transition-transform group-hover:scale-105">
+                <span className="service-cta rounded-md bg-accent px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-accent-foreground">
                   Seleccionar
                 </span>
               </div>

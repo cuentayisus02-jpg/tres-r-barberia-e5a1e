@@ -23,7 +23,7 @@ export function Ubicacion() {
                 tabIndex={-1}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="pointer-events-none h-full w-full opacity-85 grayscale-[0.15] transition-opacity duration-500 group-hover:opacity-100"
+                className="pointer-events-none h-full w-full opacity-85 grayscale-[0.15] transition-opacity duration-300 group-hover:opacity-100"
               />
               <a
                 href={NEGOCIO.maps}

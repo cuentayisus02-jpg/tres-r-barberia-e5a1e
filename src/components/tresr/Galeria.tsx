@@ -128,7 +128,7 @@ export function Galeria() {
                     type="button"
                     onClick={() => setLightbox(indice)}
                     aria-label={`Ampliar imagen: ${imagen.titulo}`}
-                    className="absolute right-4 top-4 z-10 grid size-11 place-items-center rounded-full border border-white/30 bg-background/75 text-foreground opacity-0 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-accent hover:text-accent-foreground focus-visible:opacity-100 focus-visible:outline-none group-hover:opacity-100"
+                    className="gallery-zoom absolute right-4 top-4 z-10 grid size-11 place-items-center rounded-full border border-white/30 bg-background/75 text-foreground backdrop-blur-sm hover:bg-accent hover:text-accent-foreground focus-visible:outline-none"
                   >
                     <Maximize2 className="size-4" aria-hidden="true" />
                   </button>
@@ -168,7 +168,7 @@ export function Galeria() {
         ref={dialogRef}
         aria-label="Vista ampliada de la galería"
         onClose={() => setLightbox(null)}
-        className="m-auto max-h-[92vh] max-w-[min(92vw,72rem)] rounded-2xl border border-border bg-background/95 p-2 text-foreground shadow-2xl backdrop:bg-background/85 backdrop:backdrop-blur-sm"
+        className="gallery-lightbox m-auto max-h-[92vh] max-w-[min(92vw,72rem)] rounded-2xl border border-border bg-background/95 p-2 text-foreground shadow-2xl backdrop:bg-background/85 backdrop:backdrop-blur-sm"
       >
         {lightbox !== null ? (
           <div className="relative">
