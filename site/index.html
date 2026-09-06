@@ -108,6 +108,10 @@
         outline-offset: 4px;
       }
 
+      .section--light :focus-visible {
+        outline-color: #65450a;
+      }
+
       img {
         display: block;
         max-width: 100%;
@@ -160,6 +164,10 @@
 
       .nav.is-hidden {
         transform: translate(-50%, calc(-100% - 26px));
+      }
+
+      .nav:focus-within {
+        transform: translate(-50%, 0);
       }
 
       .nav__brand {
@@ -449,7 +457,7 @@
         border: 1px dashed var(--line-strong);
         border-radius: 50%;
         content: "";
-        animation: dial-turn 28s linear infinite;
+        animation: dial-settle 900ms var(--ease-in-out) both;
       }
 
       .hero__logo-wrap {
@@ -478,9 +486,14 @@
         text-transform: uppercase;
       }
 
-      @keyframes dial-turn {
+      @keyframes dial-settle {
+        from {
+          opacity: 0;
+          transform: rotate(-22deg) scale(0.98);
+        }
         to {
-          transform: rotate(360deg);
+          opacity: 1;
+          transform: rotate(0) scale(1);
         }
       }
 
@@ -695,6 +708,7 @@
       }
 
       .lightbox__close {
+        position: relative;
         width: 44px;
         height: 44px;
         border: 1px solid var(--line);
@@ -702,6 +716,25 @@
         background: transparent;
         color: var(--porcelain);
         cursor: pointer;
+      }
+
+      .lightbox__close::before,
+      .lightbox__close::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 18px;
+        height: 1.5px;
+        background: currentColor;
+        content: "";
+      }
+
+      .lightbox__close::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      .lightbox__close::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
       }
 
       .lightbox__media {
@@ -759,8 +792,26 @@
         filter: grayscale(1) contrast(0.88);
       }
 
+      .map__placeholder {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        padding: 14px 18px;
+        border: 1px solid rgb(9 11 13 / 20%);
+        border-radius: 11px;
+        background: rgb(244 242 237 / 94%);
+        color: var(--ink);
+        font-family: "Archivo", sans-serif;
+        font-size: clamp(1.1rem, 3vw, 2rem);
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        transform: translate(-50%, -50%);
+      }
+
       .map__link {
         position: absolute;
+        z-index: 2;
         inset: 0;
         display: grid;
         place-items: end start;
@@ -777,6 +828,16 @@
         background: var(--ink);
         color: var(--porcelain);
         box-shadow: 0 14px 30px rgb(0 0 0 / 28%);
+      }
+
+      .map__link svg {
+        width: 16px;
+        height: 16px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
       }
 
       .booking {
@@ -954,42 +1015,6 @@
         border: 1px solid #25d366;
         border-radius: inherit;
         content: "";
-        animation: whatsapp-pulse 2.5s var(--ease-out) infinite;
-      }
-
-      @keyframes whatsapp-pulse {
-        0%,
-        38% {
-          opacity: 0.65;
-          transform: scale(1);
-        }
-        72%,
-        100% {
-          opacity: 0;
-          transform: scale(1.35);
-        }
-      }
-
-      .js .reveal {
-        opacity: 0;
-        transform: translateY(24px);
-        transition:
-          opacity 520ms var(--ease-out),
-          transform 520ms var(--ease-out);
-      }
-
-      .js .reveal[data-reveal="clip"] {
-        clip-path: inset(0 0 18% 0);
-        transform: translateY(0);
-        transition:
-          opacity 620ms var(--ease-out),
-          clip-path 720ms var(--ease-out);
-      }
-
-      .js .reveal.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-        clip-path: inset(0 0 0 0);
       }
 
       .hero__title,
@@ -1272,11 +1297,6 @@
           transition-duration: 1ms !important;
         }
 
-        .js .reveal {
-          opacity: 1;
-          clip-path: none;
-          transform: none;
-        }
       }
     </style>
   </head>
@@ -1349,29 +1369,29 @@
 
       <section class="section section--light" id="servicios" aria-labelledby="services-title">
         <div class="shell">
-          <div class="section__head reveal">
+          <div class="section__head">
             <h2 id="services-title">Servicios medidos al detalle.</h2>
             <p>
               [Descripción breve de los servicios. Sustituye los nombres, textos y precios antes de publicar.]
             </p>
           </div>
           <div class="services">
-            <a class="service reveal" href="#cita" data-service="[Nombre del servicio 1]">
+            <a class="service" href="#cita" data-service="[Nombre del servicio 1]">
               <h3>[Nombre del servicio 1]</h3>
               <p>[Descripción breve del servicio 1 y del acabado que puede esperar el cliente.]</p>
               <span class="service__price">[Precio $]</span>
             </a>
-            <a class="service reveal" href="#cita" data-service="[Nombre del servicio 2]">
+            <a class="service" href="#cita" data-service="[Nombre del servicio 2]">
               <h3>[Nombre del servicio 2]</h3>
               <p>[Descripción breve del servicio 2 y del acabado que puede esperar el cliente.]</p>
               <span class="service__price">[Precio $]</span>
             </a>
-            <a class="service reveal" href="#cita" data-service="[Nombre del servicio 3]">
+            <a class="service" href="#cita" data-service="[Nombre del servicio 3]">
               <h3>[Nombre del servicio 3]</h3>
               <p>[Descripción breve del servicio 3 y del acabado que puede esperar el cliente.]</p>
               <span class="service__price">[Precio $]</span>
             </a>
-            <a class="service reveal" href="#cita" data-service="[Nombre del servicio 4]">
+            <a class="service" href="#cita" data-service="[Nombre del servicio 4]">
               <h3>[Nombre del servicio 4]</h3>
               <p>[Descripción breve del servicio 4 y del acabado que puede esperar el cliente.]</p>
               <span class="service__price">[Precio $]</span>
@@ -1382,30 +1402,30 @@
 
       <section class="section" id="galeria" aria-labelledby="gallery-title">
         <div class="shell">
-          <div class="section__head reveal">
+          <div class="section__head">
             <h2 id="gallery-title">El espacio. El oficio. El resultado.</h2>
             <p>
               [Reemplaza estos marcadores con fotografías optimizadas del local, el equipo y trabajos reales.]
             </p>
           </div>
           <div class="gallery-grid" aria-label="Galería de imágenes de la barbería">
-            <button class="gallery-card reveal" type="button" data-label="[img_galeria_01]" data-caption="Interior de la barbería">
+            <button class="gallery-card" type="button" data-label="[img_galeria_01]" data-caption="Interior de la barbería">
               <span class="gallery-card__mark" role="img" aria-label="Interior de la barbería">[img_galeria_01]</span>
               <strong>Interior</strong><small>[Fotografía del espacio principal]</small>
             </button>
-            <button class="gallery-card reveal" type="button" data-label="[img_galeria_02]" data-caption="Corte realizado en la barbería">
+            <button class="gallery-card" type="button" data-label="[img_galeria_02]" data-caption="Corte realizado en la barbería">
               <span class="gallery-card__mark" role="img" aria-label="Corte realizado en la barbería">[img_galeria_02]</span>
               <strong>Cortes</strong><small>[Trabajo realizado]</small>
             </button>
-            <button class="gallery-card reveal" type="button" data-label="[img_galeria_03]" data-caption="Barbero trabajando">
+            <button class="gallery-card" type="button" data-label="[img_galeria_03]" data-caption="Barbero trabajando">
               <span class="gallery-card__mark" role="img" aria-label="Barbero trabajando">[img_galeria_03]</span>
               <strong>Oficio</strong><small>[Barbero trabajando]</small>
             </button>
-            <button class="gallery-card reveal" type="button" data-label="[img_galeria_04]" data-caption="Detalle de herramientas de barbería">
+            <button class="gallery-card" type="button" data-label="[img_galeria_04]" data-caption="Detalle de herramientas de barbería">
               <span class="gallery-card__mark" role="img" aria-label="Detalle de herramientas de barbería">[img_galeria_04]</span>
               <strong>Herramientas</strong><small>[Detalle del equipo]</small>
             </button>
-            <button class="gallery-card reveal" type="button" data-label="[img_galeria_05]" data-caption="Ambiente de la barbería">
+            <button class="gallery-card" type="button" data-label="[img_galeria_05]" data-caption="Ambiente de la barbería">
               <span class="gallery-card__mark" role="img" aria-label="Ambiente de la barbería">[img_galeria_05]</span>
               <strong>Ambiente</strong><small>[Fotografía panorámica del local]</small>
             </button>
@@ -1415,32 +1435,39 @@
 
       <section class="section section--light" id="ubicacion" aria-labelledby="location-title">
         <div class="shell location">
-          <div class="location__copy reveal">
+          <div class="location__copy">
             <h2 id="location-title">Encuéntranos sin rodeos.</h2>
             <p>[Descripción de la zona, referencias para llegar y disponibilidad de estacionamiento.]</p>
             <address>[Dirección exacta]<br />[Ciudad, estado y código postal]</address>
           </div>
-          <div class="map reveal" data-reveal="clip">
+          <div class="map">
             <iframe
               title="Mapa de la ubicación de la barbería"
               src="https://www.google.com/maps?q=%5BDirecci%C3%B3n%20exacta%5D&amp;output=embed"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
+            <span class="map__placeholder" role="img" aria-label="Marcador de posición del mapa">[mapa_ubicacion]</span>
             <a
               class="map__link"
               href="https://www.google.com/maps/search/?api=1&amp;query=%5BDirecci%C3%B3n%20exacta%5D"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Abrir la dirección en Google Maps"
-            ><span>Abrir en Google Maps ↗</span></a>
+            ><span
+                >Abrir en Google Maps
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M6 14 14 6M8 6h6v6" />
+                </svg>
+              </span></a
+            >
           </div>
         </div>
       </section>
 
       <section class="section" id="cita" aria-labelledby="booking-title">
         <div class="shell booking">
-          <div class="booking__copy reveal">
+          <div class="booking__copy">
             <h2 id="booking-title">Tu próxima cita, en minutos.</h2>
             <p>
               Completa el formulario y se abrirá WhatsApp con tu solicitud lista. La cita queda confirmada cuando la barbería responda.
@@ -1454,7 +1481,7 @@
             <p><strong>WhatsApp:</strong> [número de WhatsApp con código de país]</p>
           </div>
 
-          <form class="form reveal" id="booking-form" novalidate>
+          <form class="form" id="booking-form" novalidate>
             <div class="field field--wide">
               <label for="name">Nombre *</label>
               <input id="name" name="name" type="text" autocomplete="name" placeholder="[Tu nombre]" required />
@@ -1533,7 +1560,7 @@
       <div class="lightbox">
         <div class="lightbox__bar">
           <strong id="lightbox-title">Vista ampliada</strong>
-          <button class="lightbox__close" type="button" aria-label="Cerrar imagen ampliada">×</button>
+          <button class="lightbox__close" type="button" aria-label="Cerrar imagen ampliada"></button>
         </div>
         <div class="lightbox__media" id="lightbox-media" role="img"></div>
         <p class="lightbox__caption" id="lightbox-caption"></p>
@@ -1553,6 +1580,7 @@
         const lightboxMedia = document.querySelector("#lightbox-media");
         const lightboxCaption = document.querySelector("#lightbox-caption");
         const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const mobileMenu = window.matchMedia("(max-width: 900px)");
         let lastScroll = window.scrollY;
         let pointerFrame = 0;
 
@@ -1561,6 +1589,17 @@
           menuButton.setAttribute("aria-expanded", "false");
           menuButton.setAttribute("aria-label", "Abrir menú");
           document.body.classList.remove("menu-open");
+          navLinks.inert = mobileMenu.matches;
+        };
+
+        const syncMenuA11y = () => {
+          if (!mobileMenu.matches) {
+            navLinks.inert = false;
+            closeMenu();
+            navLinks.inert = false;
+          } else {
+            navLinks.inert = menuButton.getAttribute("aria-expanded") !== "true";
+          }
         };
 
         menuButton.addEventListener("click", () => {
@@ -1569,6 +1608,7 @@
             closeMenu();
           } else {
             navLinks.classList.add("is-open");
+            navLinks.inert = false;
             menuButton.setAttribute("aria-expanded", "true");
             menuButton.setAttribute("aria-label", "Cerrar menú");
             document.body.classList.add("menu-open");
@@ -1576,6 +1616,8 @@
         });
 
         navLinks.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+        mobileMenu.addEventListener("change", syncMenuA11y);
+        syncMenuA11y();
         document.addEventListener("keydown", (event) => {
           if (event.key === "Escape") closeMenu();
         });
@@ -1600,21 +1642,6 @@
             },
             { rootMargin: "-35% 0px -55%" },
           ).observe(section);
-        });
-
-        const revealObserver = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            });
-          },
-          { threshold: 0.12, rootMargin: "0px 0px -7%" },
-        );
-        document.querySelectorAll(".reveal").forEach((element, index) => {
-          element.style.transitionDelay = `${Math.min(index % 4, 3) * 45}ms`;
-          revealObserver.observe(element);
         });
 
         if (!reducedMotion.matches) {
