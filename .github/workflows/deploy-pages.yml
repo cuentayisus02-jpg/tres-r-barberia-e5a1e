@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAGES: "true"
+      VITE_BASE_PATH: "/tres-r-barberia-e5a1e"
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
