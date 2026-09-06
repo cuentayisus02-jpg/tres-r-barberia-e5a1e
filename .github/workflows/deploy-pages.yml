@@ -17,22 +17,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_PAGES: "true"
-      VITE_BASE_PATH: "/tres-r-barberia-e5a1e"
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-      - run: bun install --frozen-lockfile
-      - run: bun run build
-      - run: cp .output/public/_shell.html .output/public/index.html
-      - run: sed -i 's|/./assets|./assets|g' .output/public/index.html
-      - run: touch .output/public/.nojekyll
+      - run: touch site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: site
 
   deploy:
     environment:
