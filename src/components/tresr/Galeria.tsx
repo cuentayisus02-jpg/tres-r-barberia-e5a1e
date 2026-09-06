@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Maximize2, X } from "lucide-react";
 import corte from "@/assets/foto-hero.jpg";
 import interior from "@/assets/foto-interior.jpg";
 import fachada from "@/assets/foto-fachada.jpg";
@@ -31,6 +31,8 @@ const IMAGENES = [
 export function Galeria() {
   const [carruselRef, carruselApi] = useEmblaCarousel({ loop: true, align: "start" });
   const [actual, setActual] = useState(0);
+  const [lightbox, setLightbox] = useState<number | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const actualizarSeleccion = useCallback(() => {
     if (!carruselApi) return;
@@ -47,6 +49,17 @@ export function Galeria() {
       carruselApi.off("reInit", actualizarSeleccion);
     };
   }, [actualizarSeleccion, carruselApi]);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    if (lightbox !== null && !dialog.open) {
+      dialog.showModal();
+    } else if (lightbox === null && dialog.open) {
+      dialog.close();
+    }
+  }, [lightbox]);
 
   return (
     <Seccion id="galeria" className="overflow-hidden">
@@ -111,6 +124,14 @@ export function Galeria() {
                     height={1600}
                     className="h-full w-full object-cover object-center"
                   />
+                  <button
+                    type="button"
+                    onClick={() => setLightbox(indice)}
+                    aria-label={`Ampliar imagen: ${imagen.titulo}`}
+                    className="absolute right-4 top-4 z-10 grid size-11 place-items-center rounded-full border border-white/30 bg-background/75 text-foreground opacity-0 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-accent hover:text-accent-foreground focus-visible:opacity-100 focus-visible:outline-none group-hover:opacity-100"
+                  >
+                    <Maximize2 className="size-4" aria-hidden="true" />
+                  </button>
                   <figcaption className="absolute inset-x-0 bottom-0 bg-background/88 p-5 backdrop-blur-sm sm:p-7">
                     <h3 className="text-2xl">{imagen.titulo}</h3>
                     <p className="mt-1 text-sm text-muted-foreground">{imagen.texto}</p>
@@ -142,6 +163,36 @@ export function Galeria() {
           </div>
         </div>
       </Reveal>
+
+      <dialog
+        ref={dialogRef}
+        aria-label="Vista ampliada de la galería"
+        onClose={() => setLightbox(null)}
+        className="m-auto max-h-[92vh] max-w-[min(92vw,72rem)] rounded-2xl border border-border bg-background/95 p-2 text-foreground shadow-2xl backdrop:bg-background/85 backdrop:backdrop-blur-sm"
+      >
+        {lightbox !== null ? (
+          <div className="relative">
+            <img
+              src={IMAGENES[lightbox].src}
+              alt={IMAGENES[lightbox].alt}
+              className="max-h-[86vh] w-auto max-w-[88vw] rounded-xl object-contain"
+              width={1200}
+              height={1600}
+            />
+            <button
+              type="button"
+              onClick={() => setLightbox(null)}
+              aria-label="Cerrar imagen ampliada"
+              className="absolute right-3 top-3 grid size-11 place-items-center rounded-full bg-background/85 text-foreground shadow-lg transition-transform hover:scale-105 focus-visible:outline-none"
+            >
+              <X className="size-5" aria-hidden="true" />
+            </button>
+            <p className="sr-only">
+              {IMAGENES[lightbox].titulo}. {IMAGENES[lightbox].texto}
+            </p>
+          </div>
+        ) : null}
+      </dialog>
     </Seccion>
   );
 }

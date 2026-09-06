@@ -3,7 +3,8 @@ import { Menu, X, MessageCircle } from "lucide-react";
 import { NEGOCIO } from "@/lib/tresr";
 import { cn } from "@/lib/utils";
 
-const LOGO_SRC = "/logo-tresr.svg";
+// Use Vite's base URL so the exact original logo also resolves on GitHub Pages.
+const LOGO_SRC = `${import.meta.env.BASE_URL}logo-tresr.png`;
 
 const ENLACES = [
   { href: "#servicios", texto: "Servicios" },
