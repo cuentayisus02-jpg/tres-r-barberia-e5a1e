@@ -8,7 +8,10 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   vite: {
-    base: process.env.GITHUB_PAGES === "true" ? "./" : "/",
+    base:
+      process.env.GITHUB_PAGES === "true"
+        ? "/tres-r-barberia-e5a1e/"
+        : "/",
   },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
