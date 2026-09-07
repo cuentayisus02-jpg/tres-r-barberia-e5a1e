@@ -1,115 +1,87 @@
 <!doctype html>
-<html lang="es" class="no-js">
+<html lang="es-MX">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0b0e" />
     <meta
       name="description"
-      content="[Descripción de la barbería: servicios, ubicación y citas por WhatsApp]"
+      content="Tres R barbershop en Monterrey. Cortes, barba y acabados con citas por WhatsApp. Consulta precios, horario y ubicación."
     />
-    <meta name="theme-color" content="#090b0d" />
-    <title>[Nombre de la barbería] | Barbería y citas</title>
-    <link rel="icon" type="image/png" href="./logo-tresr.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
-      rel="stylesheet"
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://cuentayisus02-jpg.github.io/tres-r-barberia-e5a1e/" />
+    <link rel="icon" href="logo-tresr.png" />
+    <link rel="preload" href="foto-hero.jpg" as="image" />
+    <link rel="preload" href="logo-tresr.png" as="image" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:title" content="Tres R barbershop | Monterrey" />
+    <meta
+      property="og:description"
+      content="Tu estilo, bien hecho. Conoce servicios, precios y agenda tu cita por WhatsApp."
     />
-    <script>
-      document.documentElement.className = "js";
-    </script>
+    <meta property="og:url" content="https://cuentayisus02-jpg.github.io/tres-r-barberia-e5a1e/" />
+    <meta
+      property="og:image"
+      content="https://cuentayisus02-jpg.github.io/tres-r-barberia-e5a1e/foto-hero.jpg"
+    />
+    <title>Tres R barbershop | Barbería en Monterrey</title>
     <style>
       :root {
-        color-scheme: dark;
-        --ink: #090b0d;
-        --ink-raised: #111419;
-        --porcelain: #f4f2ed;
-        --porcelain-soft: #d9d7d2;
-        --steel: #aeb4bc;
-        --steel-deep: #636a73;
-        --amber: #d9a441;
-        --amber-soft: #f1c66d;
-        --line: rgb(244 242 237 / 14%);
-        --line-strong: rgb(244 242 237 / 28%);
-        --danger: #ff9c8f;
-        --success: #a9d6b5;
+        --ink: #0a0b0e;
+        --ink-soft: #12151b;
+        --panel: #171b22;
+        --panel-2: #202631;
+        --paper: #f4f1ea;
+        --paper-2: #e9e5dc;
+        --text: #f7f4ed;
+        --muted: #aeb5c0;
+        --dark-text: #15171b;
+        --accent: #ffc629;
+        --accent-ink: #171100;
+        --success: #39d98a;
+        --line: rgba(255, 255, 255, 0.12);
+        --radius-sm: 14px;
+        --radius: 24px;
+        --radius-lg: 38px;
+        --shadow: 0 30px 90px rgba(0, 0, 0, 0.32);
         --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
         --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-        --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
-        --radius: 14px;
-        --page: min(1200px, calc(100vw - 40px));
-        font-family: "Manrope", "Helvetica Neue", sans-serif;
-        background: var(--ink);
-        color: var(--porcelain);
-        scroll-behavior: smooth;
-        scrollbar-color: var(--amber) var(--ink);
-        scrollbar-width: thin;
+        --max: 1220px;
       }
 
-      * {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
       }
 
-      html,
-      body {
-        margin: 0;
-        min-width: 320px;
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 92px;
+        overflow-x: clip;
         background: var(--ink);
       }
 
       body {
-        line-height: 1.6;
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--ink);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
         text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
       }
 
-      body.menu-open {
+      body.is-loading {
         overflow: hidden;
       }
 
       ::selection {
-        background: var(--amber);
-        color: var(--ink);
-      }
-
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: var(--ink);
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: var(--amber);
-        border: 3px solid var(--ink);
-        border-radius: 999px;
-      }
-
-      a {
-        color: inherit;
-      }
-
-      button,
-      input,
-      select {
-        font: inherit;
-      }
-
-      button,
-      a,
-      input,
-      select {
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      :focus-visible {
-        outline: 3px solid var(--amber-soft);
-        outline-offset: 4px;
-      }
-
-      .section--light :focus-visible {
-        outline-color: #65450a;
+        background: var(--accent);
+        color: var(--accent-ink);
       }
 
       img {
@@ -117,16 +89,40 @@
         max-width: 100%;
       }
 
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      select,
+      textarea {
+        color: inherit;
+        font: inherit;
+      }
+
+      button,
+      select {
+        cursor: pointer;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 4px;
+      }
+
       .skip-link {
         position: fixed;
         z-index: 1000;
         top: 12px;
         left: 12px;
-        padding: 10px 14px;
-        border-radius: 10px;
-        background: var(--porcelain);
-        color: var(--ink);
+        padding: 12px 16px;
         transform: translateY(-160%);
+        border-radius: 10px;
+        background: var(--accent);
+        color: var(--accent-ink);
+        font-weight: 800;
         transition: transform 180ms var(--ease-out);
       }
 
@@ -134,152 +130,228 @@
         transform: translateY(0);
       }
 
-      .shell {
-        width: var(--page);
-        margin-inline: auto;
-      }
-
-      .nav {
+      .scroll-progress {
         position: fixed;
-        z-index: 100;
-        top: 14px;
-        left: 50%;
-        width: var(--page);
-        min-height: 68px;
-        display: flex;
-        align-items: center;
-        gap: 24px;
-        padding: 10px 12px 10px 14px;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background: rgb(9 11 13 / 90%);
-        box-shadow: 0 18px 50px rgb(0 0 0 / 26%);
-        backdrop-filter: blur(18px) saturate(120%);
-        transform: translate(-50%, 0);
-        transition:
-          transform 240ms var(--ease-out),
-          border-color 180ms ease,
-          background-color 180ms ease;
+        z-index: 200;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        transform: scaleX(0);
+        transform-origin: left;
+        background: var(--accent);
+        animation: page-progress linear both;
+        animation-timeline: scroll(root);
       }
 
-      .nav.is-hidden {
-        transform: translate(-50%, calc(-100% - 26px));
+      @keyframes page-progress {
+        to {
+          transform: scaleX(1);
+        }
       }
 
-      .nav:focus-within {
-        transform: translate(-50%, 0);
-      }
-
-      .nav__brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        min-width: max-content;
-        text-decoration: none;
-      }
-
-      .nav__logo {
-        width: 44px;
-        height: 44px;
-        padding: 4px;
-        border-radius: 10px;
-        background: #fff;
-        object-fit: contain;
-      }
-
-      .nav__name {
+      .loader {
+        position: fixed;
+        z-index: 999;
+        inset: 0;
         display: grid;
-        line-height: 1;
-        letter-spacing: -0.02em;
+        place-items: center;
+        pointer-events: none;
       }
 
-      .nav__name strong {
-        font-family: "Archivo", sans-serif;
-        font-size: 0.94rem;
+      .loader__panel {
+        position: absolute;
+        inset-block: 0;
+        width: 50.1%;
+        background: #08090b;
+        transition: transform 1050ms var(--ease-in-out) 700ms;
       }
 
-      .nav__name span {
-        margin-top: 5px;
-        color: var(--steel);
-        font-size: 0.7rem;
-        letter-spacing: 0.14em;
+      .loader__panel:first-child {
+        left: 0;
+        transform-origin: left;
+      }
+
+      .loader__panel:nth-child(2) {
+        right: 0;
+        transform-origin: right;
+      }
+
+      .loader__logo-wrap {
+        position: relative;
+        z-index: 2;
+        width: min(52vw, 300px);
+        padding: 18px;
+        transform: translateY(20px) scale(0.92);
+        opacity: 0;
+        border-radius: 28px;
+        background: #f7f5ef;
+        box-shadow: var(--shadow);
+        animation: loader-logo 760ms var(--ease-out) 80ms forwards;
+        transition: opacity 320ms ease 620ms, transform 600ms var(--ease-in-out) 570ms;
+      }
+
+      .loader__word {
+        position: absolute;
+        z-index: 3;
+        bottom: 7vh;
+        margin: 0;
+        color: var(--accent);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.28em;
         text-transform: uppercase;
+        opacity: 0;
+        animation: loader-word 620ms ease 320ms forwards;
       }
 
-      .nav__links {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        margin-left: auto;
+      body.is-ready .loader__panel:first-child {
+        transform: translateX(-101%);
       }
 
-      .nav__links a {
-        padding: 10px 12px;
-        border-radius: 10px;
-        color: var(--porcelain-soft);
-        font-size: 0.82rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition:
-          color 160ms ease,
-          background-color 160ms ease;
+      body.is-ready .loader__panel:nth-child(2) {
+        transform: translateX(101%);
       }
 
-      .nav__links a[aria-current="true"] {
-        color: var(--porcelain);
-        background: rgb(244 242 237 / 8%);
-      }
-
-      .nav__links .nav__cta {
-        margin-left: 6px;
-        background: var(--porcelain);
-        color: var(--ink);
-      }
-
-      .menu-button {
-        display: none;
-        width: 44px;
-        height: 44px;
-        margin-left: auto;
-        border: 0;
-        border-radius: 12px;
-        background: transparent;
-        color: var(--porcelain);
-        cursor: pointer;
-        transition: transform 140ms var(--ease-out);
-      }
-
-      .menu-button:active,
-      .button:active,
-      .gallery-card:active,
-      .whatsapp-float:active {
-        transform: scale(0.97);
-      }
-
-      .menu-button span,
-      .menu-button::before,
-      .menu-button::after {
-        display: block;
-        width: 20px;
-        height: 1.5px;
-        margin: 5px auto;
-        background: currentColor;
-        content: "";
-        transition:
-          transform 200ms var(--ease-drawer),
-          opacity 140ms ease;
-      }
-
-      .menu-button[aria-expanded="true"] span {
+      body.is-ready .loader__logo-wrap {
+        transform: translateY(-6px) scale(0.86);
         opacity: 0;
       }
 
-      .menu-button[aria-expanded="true"]::before {
-        transform: translateY(6.5px) rotate(45deg);
+      body.is-ready .loader__word {
+        opacity: 0;
+        transition: opacity 160ms ease;
       }
 
-      .menu-button[aria-expanded="true"]::after {
-        transform: translateY(-6.5px) rotate(-45deg);
+      @keyframes loader-logo {
+        to {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes loader-word {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .site-header {
+        position: fixed;
+        z-index: 120;
+        top: 18px;
+        left: 50%;
+        display: flex;
+        width: min(calc(100% - 32px), var(--max));
+        min-height: 64px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 10px 8px 12px;
+        transform: translateX(-50%);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 999px;
+        background: rgba(10, 11, 14, 0.76);
+        box-shadow: 0 12px 50px rgba(0, 0, 0, 0.26);
+        -webkit-backdrop-filter: blur(18px);
+        backdrop-filter: blur(18px);
+      }
+
+      .brand {
+        display: inline-flex;
+        min-width: 0;
+        align-items: center;
+        gap: 11px;
+        border-radius: 999px;
+      }
+
+      .brand img {
+        width: 43px;
+        height: 43px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: #f7f5ef;
+      }
+
+      .brand strong {
+        overflow: hidden;
+        font-size: 0.88rem;
+        letter-spacing: -0.01em;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+      }
+
+      .desktop-nav a {
+        padding: 10px 13px;
+        border-radius: 999px;
+        color: #c9ced7;
+        font-size: 0.83rem;
+        font-weight: 650;
+        transition: background-color 180ms ease, color 180ms ease, transform 140ms var(--ease-out);
+      }
+
+      .desktop-nav a[aria-current="page"] {
+        background: rgba(255, 198, 41, 0.12);
+        color: var(--accent);
+      }
+
+      .desktop-nav a:active,
+      .button:active,
+      .gallery-control:active,
+      .service-card:active {
+        transform: scale(0.97);
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 50px;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        padding: 0 20px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        transition: transform 140ms var(--ease-out), background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+      }
+
+      .button--accent {
+        background: var(--accent);
+        color: var(--accent-ink);
+        box-shadow: 0 14px 34px rgba(255, 198, 41, 0.2);
+      }
+
+      .button--outline {
+        border-color: rgba(255, 255, 255, 0.24);
+        background: rgba(10, 11, 14, 0.44);
+        color: var(--text);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+      }
+
+      .button--dark {
+        background: var(--ink);
+        color: var(--text);
+      }
+
+      .button svg,
+      .mobile-nav svg,
+      .contact-link svg,
+      .float-whatsapp svg {
+        width: 19px;
+        height: 19px;
+        flex: 0 0 auto;
+        stroke: currentColor;
+        stroke-width: 1.9;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
       }
 
       .hero {
@@ -287,1428 +359,2196 @@
         min-height: 100svh;
         display: grid;
         align-items: end;
+        overflow: hidden;
         isolation: isolate;
-        overflow: clip;
-        padding: 150px 0 60px;
       }
 
-      .hero::before {
+      .hero__media,
+      .hero__scrim,
+      .hero__texture {
         position: absolute;
-        z-index: -3;
         inset: 0;
-        background:
-          linear-gradient(90deg, transparent 49.95%, rgb(244 242 237 / 8%) 50%, transparent 50.05%),
-          var(--ink);
-        content: "";
       }
 
-      .dial {
-        --pointer-x: 0deg;
-        position: absolute;
+      .hero__media {
+        z-index: -3;
+        width: 100%;
+        height: 112%;
+        object-fit: cover;
+        object-position: 62% 45%;
+        transform: scale(1.06);
+        animation: hero-drift linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0 100vh;
+      }
+
+      @keyframes hero-drift {
+        to {
+          transform: translateY(8%) scale(1.02);
+        }
+      }
+
+      .hero__scrim {
         z-index: -2;
-        top: 50%;
-        left: 68%;
-        width: min(72vw, 860px);
-        aspect-ratio: 1;
-        border: 1px solid var(--line);
-        border-radius: 50%;
-        opacity: 0.72;
-        transform: translate(-50%, -50%) rotate(var(--pointer-x));
-        transition: transform 600ms var(--ease-out);
+        background:
+          linear-gradient(90deg, rgba(7, 8, 10, 0.94) 0%, rgba(7, 8, 10, 0.7) 42%, rgba(7, 8, 10, 0.1) 76%),
+          linear-gradient(0deg, rgba(7, 8, 10, 0.96) 0%, transparent 44%, rgba(7, 8, 10, 0.32) 100%);
       }
 
-      .dial::before,
-      .dial::after {
-        position: absolute;
-        inset: 6%;
-        border: 1px solid var(--line);
-        border-radius: 50%;
-        content: "";
+      .hero__texture {
+        z-index: -1;
+        opacity: 0.11;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+        mix-blend-mode: soft-light;
+        pointer-events: none;
       }
 
-      .dial::after {
-        inset: 15%;
-        border-color: var(--line-strong);
-        background: repeating-conic-gradient(
-          from 0deg,
-          var(--steel-deep) 0deg 0.35deg,
-          transparent 0.35deg 6deg
-        );
-        -webkit-mask: radial-gradient(circle, transparent 71%, #000 72% 73%, transparent 74%);
-        mask: radial-gradient(circle, transparent 71%, #000 72% 73%, transparent 74%);
-      }
-
-      .dial__hand {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 29%;
-        height: 1px;
-        background: var(--amber);
-        transform: rotate(-38deg);
-        transform-origin: 0 50%;
-      }
-
-      .dial__hand::before {
-        position: absolute;
-        left: -6px;
-        top: -6px;
-        width: 12px;
-        height: 12px;
-        border: 2px solid var(--amber);
-        border-radius: 50%;
-        background: var(--ink);
-        content: "";
+      .hero__inner {
+        width: min(calc(100% - 32px), var(--max));
+        margin: 0 auto;
+        padding: 138px 0 34px;
       }
 
       .hero__grid {
         display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.55fr);
+        grid-template-columns: minmax(0, 1.15fr) minmax(270px, 0.52fr);
         align-items: end;
-        gap: clamp(36px, 8vw, 120px);
+        gap: clamp(34px, 7vw, 100px);
       }
 
-      .hero__copy {
-        max-width: 800px;
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin: 0 0 20px;
+        color: var(--accent);
+        font-size: 0.72rem;
+        font-weight: 850;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
       }
 
-      .hero__title {
-        max-width: 9ch;
+      .eyebrow::before {
+        width: 28px;
+        height: 2px;
+        content: "";
+        background: currentColor;
+      }
+
+      .hero h1 {
+        max-width: 11ch;
         margin: 0;
-        font-family: "Archivo", sans-serif;
-        font-size: clamp(3.5rem, 9vw, 6rem);
-        font-weight: 600;
-        line-height: 0.93;
-        letter-spacing: -0.035em;
+        font-size: clamp(3.7rem, 8.2vw, 8.35rem);
+        font-weight: 850;
+        letter-spacing: -0.075em;
+        line-height: 0.83;
         text-wrap: balance;
       }
 
-      .hero__title span {
+      .hero h1 span {
         display: block;
-        color: var(--steel);
-        font-weight: 400;
+        color: var(--accent);
       }
 
-      .hero__intro {
-        max-width: 58ch;
-        margin: 28px 0 0;
-        color: var(--porcelain-soft);
-        font-size: clamp(1rem, 2vw, 1.18rem);
+      .hero__copy {
+        max-width: 510px;
+        margin: 24px 0 0;
+        color: #d5d8dd;
+        font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+        text-wrap: balance;
       }
 
       .hero__actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 34px;
+        gap: 10px;
+        margin-top: 28px;
       }
 
-      .button {
-        min-height: 50px;
+      .hero__aside {
+        display: grid;
+        gap: 14px;
+        justify-items: end;
+      }
+
+      .logo-plaque {
+        width: min(100%, 290px);
+        overflow: hidden;
+        padding: 18px;
+        transform: rotate(2deg);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 28px;
+        background: #f7f5ef;
+        box-shadow: var(--shadow);
+      }
+
+      .open-chip {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 0 20px;
-        border: 1px solid transparent;
-        border-radius: 12px;
-        background: var(--porcelain);
-        color: var(--ink);
-        font-weight: 700;
-        text-decoration: none;
-        cursor: pointer;
-        transition:
-          transform 140ms var(--ease-out),
-          background-color 180ms ease,
-          border-color 180ms ease,
-          color 180ms ease;
+        gap: 9px;
+        padding: 10px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 999px;
+        background: rgba(10, 11, 14, 0.72);
+        color: #dce1e8;
+        font-size: 0.8rem;
+        font-weight: 750;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
       }
 
-      .button--ghost {
-        border-color: var(--line-strong);
-        background: rgb(9 11 13 / 66%);
-        color: var(--porcelain);
-      }
-
-      .button svg,
-      .whatsapp-float svg {
-        width: 19px;
-        height: 19px;
-        flex: 0 0 auto;
-        fill: none;
-        stroke: currentColor;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 1.8;
-      }
-
-      .hero__logo-stage {
-        position: relative;
-        width: min(100%, 340px);
-        justify-self: end;
-        padding: 22px;
-        border: 1px solid rgb(244 242 237 / 38%);
+      .open-chip::before {
+        width: 9px;
+        height: 9px;
         border-radius: 50%;
-      }
-
-      .hero__logo-stage::before {
-        position: absolute;
-        inset: -9px;
-        border: 1px dashed var(--line-strong);
-        border-radius: 50%;
+        background: var(--success);
+        box-shadow: 0 0 0 5px rgba(57, 217, 138, 0.13);
         content: "";
-        animation: dial-settle 900ms var(--ease-in-out) both;
       }
 
-      .hero__logo-wrap {
-        aspect-ratio: 1;
+      .open-chip[data-open="false"]::before {
+        background: #ff6b62;
+        box-shadow: 0 0 0 5px rgba(255, 107, 98, 0.13);
+      }
+
+      .stats {
         display: grid;
-        place-items: center;
-        padding: 16%;
-        border-radius: 50%;
-        background: #fff;
-        box-shadow: 0 28px 80px rgb(0 0 0 / 48%);
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: clamp(36px, 6vh, 70px);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 22px;
+        background: rgba(13, 16, 22, 0.76);
+        -webkit-backdrop-filter: blur(15px);
+        backdrop-filter: blur(15px);
       }
 
-      .hero__logo-wrap img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+      .stat {
+        min-width: 0;
+        padding: 18px 20px;
       }
 
-      .hero__coordinate {
-        position: absolute;
-        right: 0;
-        bottom: -34px;
-        color: var(--steel);
+      .stat + .stat {
+        border-left: 1px solid var(--line);
+      }
+
+      .stat strong {
+        display: block;
+        color: var(--accent);
+        font-size: clamp(1.4rem, 2.2vw, 2rem);
+        font-weight: 850;
+        letter-spacing: -0.05em;
+        line-height: 1;
+      }
+
+      .stat:nth-child(2) strong {
+        color: var(--success);
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 7px;
+        color: #d0d4dc;
+        font-size: 0.76rem;
+      }
+
+      .section {
+        position: relative;
+        padding: clamp(86px, 11vw, 150px) 0;
+      }
+
+      .section--paper {
+        background: var(--paper);
+        color: var(--dark-text);
+      }
+
+      .section--paper + .section--paper {
+        border-top: 1px solid rgba(12, 13, 16, 0.12);
+      }
+
+      .shell {
+        width: min(calc(100% - 32px), var(--max));
+        margin-inline: auto;
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+        align-items: end;
+        gap: 34px;
+        margin-bottom: clamp(42px, 7vw, 76px);
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+        color: #775900;
         font-size: 0.72rem;
+        font-weight: 850;
+        letter-spacing: 0.19em;
+        text-transform: uppercase;
+      }
+
+      .kicker::before {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        content: "";
+      }
+
+      .section:not(.section--paper) .kicker {
+        color: var(--accent);
+      }
+
+      .section-title {
+        max-width: 12ch;
+        margin: 0;
+        font-size: clamp(2.8rem, 6.3vw, 6.8rem);
+        font-weight: 840;
+        letter-spacing: -0.07em;
+        line-height: 0.92;
+        text-wrap: balance;
+      }
+
+      .section-lede {
+        max-width: 44ch;
+        margin: 0;
+        color: #5c626c;
+        font-size: 1.02rem;
+      }
+
+      .section:not(.section--paper) .section-lede {
+        color: var(--muted);
+      }
+
+      [data-reveal] {
+        opacity: 0;
+        transform: translate3d(var(--reveal-x, 0), 34px, 0) scale(0.985);
+        transition: transform 780ms var(--ease-out), opacity 620ms ease;
+      }
+
+      [data-reveal].is-visible {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      .services-layout {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
+        align-items: start;
+        gap: clamp(34px, 6vw, 86px);
+      }
+
+      .services-intro {
+        position: sticky;
+        top: 118px;
+      }
+
+      .services-intro .section-title {
+        max-width: 8ch;
+      }
+
+      .services-intro p {
+        max-width: 36ch;
+        margin: 22px 0 0;
+        color: #5b6068;
+      }
+
+      .services-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .service-card {
+        position: sticky;
+        top: calc(106px + var(--stack, 0) * 12px);
+        display: grid;
+        grid-template-columns: 68px minmax(0, 1fr) auto;
+        min-height: 190px;
+        align-items: center;
+        gap: clamp(16px, 3vw, 34px);
+        width: 100%;
+        padding: clamp(22px, 3.4vw, 40px);
+        overflow: hidden;
+        border: 1px solid #d8d3c8;
+        border-radius: 30px;
+        background: #fbf9f4;
+        color: var(--dark-text);
+        text-align: left;
+        box-shadow: 0 20px 60px rgba(27, 21, 9, 0.08);
+        transition: transform 180ms var(--ease-out), border-color 180ms ease, box-shadow 180ms ease;
+      }
+
+      .service-card::after {
+        position: absolute;
+        right: -48px;
+        bottom: -72px;
+        width: 180px;
+        height: 180px;
+        transform: scale(0.4);
+        opacity: 0;
+        border-radius: 50%;
+        background: var(--accent);
+        content: "";
+        transition: transform 360ms var(--ease-out), opacity 240ms ease;
+      }
+
+      .service-card--featured {
+        border-color: #16181c;
+        background: var(--ink-soft);
+        color: var(--text);
+      }
+
+      .service-card__number {
+        align-self: start;
+        color: #8a8f96;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+      }
+
+      .service-card__title {
+        display: block;
+        margin: 0;
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+        font-weight: 800;
+        letter-spacing: -0.05em;
+        line-height: 1;
+      }
+
+      .service-card p {
+        max-width: 48ch;
+        margin: 12px 0 0;
+        color: #656a72;
+        font-size: 0.92rem;
+      }
+
+      .service-card--featured p {
+        color: #b9bfc9;
+      }
+
+      .service-card__meta {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        justify-items: end;
+        gap: 9px;
+      }
+
+      .service-card__price {
+        font-size: clamp(1.8rem, 3.5vw, 3rem);
+        font-weight: 850;
+        letter-spacing: -0.06em;
+      }
+
+      .service-card__duration {
+        color: #777d86;
+        font-size: 0.72rem;
+      }
+
+      .recommendation {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: var(--accent-ink);
+        font-size: 0.68rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .marquee {
+        overflow: hidden;
+        border-block: 1px solid var(--line);
+        background: var(--accent);
+        color: var(--accent-ink);
+      }
+
+      .marquee__track {
+        display: flex;
+        width: max-content;
+        animation: marquee 24s linear infinite;
+      }
+
+      .marquee__track span {
+        display: inline-flex;
+        align-items: center;
+        gap: 26px;
+        padding: 16px 13px;
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .marquee__track span::after {
+        content: "✦";
+      }
+
+      @keyframes marquee {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .craft-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.74fr);
+        gap: clamp(18px, 4vw, 46px);
+      }
+
+      .craft-photo {
+        position: relative;
+        min-height: min(74vw, 780px);
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+      }
+
+      .craft-photo img {
+        width: 100%;
+        height: 112%;
+        object-fit: cover;
+        object-position: center;
+        animation: photo-shift linear both;
+        animation-timeline: view();
+        animation-range: entry -10% exit 110%;
+      }
+
+      @keyframes photo-shift {
+        from {
+          transform: translateY(-6%);
+        }
+        to {
+          transform: translateY(4%);
+        }
+      }
+
+      .craft-photo__caption {
+        position: absolute;
+        right: 18px;
+        bottom: 18px;
+        left: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 17px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 18px;
+        background: rgba(10, 11, 14, 0.74);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+      }
+
+      .craft-photo__caption strong {
+        font-size: 0.95rem;
+      }
+
+      .craft-photo__caption span {
+        color: var(--accent);
+        font-size: 0.72rem;
+        font-weight: 800;
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
 
-      @keyframes dial-settle {
-        from {
-          opacity: 0;
-          transform: rotate(-22deg) scale(0.98);
-        }
-        to {
-          opacity: 1;
-          transform: rotate(0) scale(1);
-        }
+      .craft-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 34px;
+        padding: clamp(24px, 4vw, 52px) 0;
       }
 
-      .section {
-        padding: clamp(90px, 12vw, 160px) 0;
-        padding-inline: 8px;
-        border-top: 1px solid var(--line);
-      }
-
-      .section--light {
-        background: var(--porcelain);
-        color: var(--ink);
-      }
-
-      .section__head {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(240px, 0.55fr);
-        gap: 30px;
-        align-items: end;
-        margin-bottom: clamp(44px, 7vw, 88px);
-      }
-
-      .section__head h2,
-      .booking__copy h2,
-      .location__copy h2 {
-        max-width: 12ch;
+      .craft-copy blockquote {
         margin: 0;
-        font-family: "Archivo", sans-serif;
-        font-size: clamp(2.5rem, 6vw, 5.2rem);
-        font-weight: 600;
+        font-size: clamp(2rem, 4.7vw, 4.8rem);
+        font-weight: 780;
+        letter-spacing: -0.065em;
         line-height: 0.98;
-        letter-spacing: -0.035em;
         text-wrap: balance;
       }
 
-      .section__head p {
-        max-width: 54ch;
-        margin: 0;
-        color: var(--steel-deep);
+      .craft-copy blockquote span {
+        color: var(--accent);
       }
 
-      .section:not(.section--light) .section__head p {
-        color: var(--steel);
-      }
-
-      .services {
-        border-top: 1px solid rgb(9 11 13 / 18%);
-      }
-
-      .service {
-        position: relative;
+      .craft-points {
         display: grid;
-        grid-template-columns: minmax(160px, 0.62fr) minmax(260px, 1fr) auto;
-        gap: 28px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 9px;
+      }
+
+      .craft-point {
+        min-height: 120px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--panel);
+      }
+
+      .craft-point strong {
+        display: block;
+        color: var(--accent);
+        font-size: 1.4rem;
+        line-height: 1;
+      }
+
+      .craft-point span {
+        display: block;
+        margin-top: 10px;
+        color: #c1c7d0;
+        font-size: 0.76rem;
+      }
+
+      .gallery-shell {
+        overflow: hidden;
+      }
+
+      .gallery-toolbar {
+        display: flex;
         align-items: center;
-        min-height: 132px;
-        padding: 24px 0;
-        border-bottom: 1px solid rgb(9 11 13 / 18%);
-        color: inherit;
-        text-decoration: none;
-        transition:
-          color 180ms ease,
-          padding-left 220ms var(--ease-out);
-      }
-
-      .service h3 {
-        margin: 0;
-        font-family: "Archivo", sans-serif;
-        font-size: clamp(1.35rem, 2.5vw, 2rem);
-        letter-spacing: -0.025em;
-      }
-
-      .service p {
-        max-width: 56ch;
-        margin: 0;
-        color: #4d535b;
-      }
-
-      .service__price {
-        display: inline-flex;
-        align-items: center;
-        gap: 14px;
-        font-family: "Archivo", sans-serif;
-        font-size: clamp(1.15rem, 2vw, 1.45rem);
-        font-variant-numeric: tabular-nums;
-        white-space: nowrap;
-      }
-
-      .service__price::after {
-        width: 10px;
-        height: 10px;
-        border-top: 1px solid currentColor;
-        border-right: 1px solid currentColor;
-        content: "";
-        transform: rotate(45deg);
-        transition: transform 180ms var(--ease-out);
-      }
-
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
+        justify-content: space-between;
         gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      .gallery-counter {
+        color: #6a7078;
+        font-size: 0.82rem;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .gallery-controls {
+        display: flex;
+        gap: 8px;
+      }
+
+      .gallery-control {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        border: 1px solid #cac5bb;
+        border-radius: 50%;
+        background: transparent;
+        color: var(--dark-text);
+        transition: transform 140ms var(--ease-out), background-color 180ms ease;
+      }
+
+      .gallery-control svg {
+        width: 20px;
+        height: 20px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2;
+      }
+
+      .gallery-track {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+
+      .gallery-track::-webkit-scrollbar {
+        display: none;
       }
 
       .gallery-card {
-        min-height: 280px;
-        display: grid;
-        align-content: end;
-        padding: 22px;
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        background: var(--ink-raised);
-        color: var(--porcelain);
-        text-align: left;
-        cursor: zoom-in;
+        position: relative;
+        flex: 0 0 min(72vw, 680px);
+        aspect-ratio: 4 / 5;
         overflow: hidden;
-        transition:
-          transform 240ms var(--ease-out),
-          border-color 180ms ease,
-          background-color 180ms ease;
-      }
-
-      .gallery-card:nth-child(1),
-      .gallery-card:nth-child(4) {
-        grid-column: span 7;
-      }
-
-      .gallery-card:nth-child(2),
-      .gallery-card:nth-child(3) {
-        grid-column: span 5;
-      }
-
-      .gallery-card:nth-child(5) {
-        grid-column: span 12;
-        min-height: 220px;
-      }
-
-      .gallery-card__mark {
-        align-self: start;
-        color: var(--steel);
-        font-family: "Archivo", sans-serif;
-        font-size: clamp(1.4rem, 4vw, 3.8rem);
-        font-weight: 500;
-        letter-spacing: -0.03em;
-        transition:
-          transform 280ms var(--ease-out),
-          color 180ms ease;
-      }
-
-      .gallery-card strong {
-        display: block;
-        margin-top: 80px;
-        font-family: "Archivo", sans-serif;
-        font-size: 1.05rem;
-      }
-
-      .gallery-card small {
-        color: var(--steel);
-      }
-
-      dialog {
-        width: min(900px, calc(100vw - 32px));
-        min-height: min(640px, calc(100svh - 64px));
         padding: 0;
-        border: 1px solid var(--line-strong);
-        border-radius: 18px;
-        background: var(--ink-raised);
-        color: var(--porcelain);
-        opacity: 1;
-        transform: scale(1);
-        transition:
-          opacity 220ms var(--ease-out),
-          transform 220ms var(--ease-out),
-          display 220ms allow-discrete,
-          overlay 220ms allow-discrete;
+        scroll-snap-align: center;
+        border: 0;
+        border-radius: 30px;
+        background: var(--panel);
+        color: var(--text);
       }
 
-      dialog::backdrop {
-        background: rgb(0 0 0 / 78%);
-        backdrop-filter: blur(8px);
-        opacity: 1;
-        transition:
-          opacity 180ms ease,
-          display 180ms allow-discrete,
-          overlay 180ms allow-discrete;
+      .gallery-card:nth-child(2) {
+        flex-basis: min(58vw, 550px);
+        aspect-ratio: 3 / 4;
       }
 
-      @starting-style {
-        dialog[open] {
-          opacity: 0;
-          transform: scale(0.97);
-        }
-
-        dialog[open]::backdrop {
-          opacity: 0;
-        }
-      }
-
-      .lightbox {
-        min-height: inherit;
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        padding: 18px;
-      }
-
-      .lightbox__bar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-        padding-bottom: 16px;
-      }
-
-      .lightbox__close {
-        position: relative;
-        width: 44px;
-        height: 44px;
-        border: 1px solid var(--line);
-        border-radius: 50%;
-        background: transparent;
-        color: var(--porcelain);
-        cursor: pointer;
-      }
-
-      .lightbox__close::before,
-      .lightbox__close::after {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 18px;
-        height: 1.5px;
-        background: currentColor;
-        content: "";
-      }
-
-      .lightbox__close::before {
-        transform: translate(-50%, -50%) rotate(45deg);
-      }
-
-      .lightbox__close::after {
-        transform: translate(-50%, -50%) rotate(-45deg);
-      }
-
-      .lightbox__media {
-        display: grid;
-        place-items: center;
-        min-height: 380px;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        color: var(--steel);
-        font-family: "Archivo", sans-serif;
-        font-size: clamp(1.5rem, 7vw, 5rem);
-        letter-spacing: -0.03em;
-        text-align: center;
-      }
-
-      .lightbox__caption {
-        margin: 0;
-        padding-top: 16px;
-        color: var(--steel);
-      }
-
-      .location {
-        display: grid;
-        grid-template-columns: minmax(0, 0.76fr) minmax(320px, 1.24fr);
-        gap: clamp(40px, 8vw, 100px);
-        align-items: center;
-      }
-
-      .location__copy p {
-        max-width: 52ch;
-        margin: 26px 0 0;
-        color: var(--steel-deep);
-      }
-
-      .location__copy address {
-        margin-top: 30px;
-        font-style: normal;
-        font-weight: 700;
-      }
-
-      .map {
-        position: relative;
-        min-height: 560px;
-        overflow: hidden;
-        border-radius: var(--radius);
-        background: #d9d7d2;
-        box-shadow: 0 30px 70px rgb(0 0 0 / 18%);
-      }
-
-      .map iframe {
+      .gallery-card img {
         width: 100%;
         height: 100%;
-        min-height: 560px;
-        border: 0;
-        filter: grayscale(1) contrast(0.88);
+        object-fit: cover;
+        transition: transform 700ms var(--ease-out), opacity 300ms ease;
       }
 
-      .map__placeholder {
+      .gallery-card::after {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(0deg, rgba(7, 8, 10, 0.82), transparent 42%);
+        content: "";
+        pointer-events: none;
+      }
+
+      .gallery-card__caption {
         position: absolute;
         z-index: 1;
-        top: 50%;
-        left: 50%;
-        padding: 14px 18px;
-        border: 1px solid rgb(9 11 13 / 20%);
-        border-radius: 11px;
-        background: rgb(244 242 237 / 94%);
-        color: var(--ink);
-        font-family: "Archivo", sans-serif;
-        font-size: clamp(1.1rem, 3vw, 2rem);
-        font-weight: 600;
-        letter-spacing: -0.025em;
-        transform: translate(-50%, -50%);
+        right: 22px;
+        bottom: 22px;
+        left: 22px;
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 14px;
+        text-align: left;
       }
 
-      .map__link {
-        position: absolute;
-        z-index: 2;
-        inset: 0;
+      .gallery-card__caption strong {
+        font-size: clamp(1.25rem, 2.2vw, 2rem);
+        letter-spacing: -0.04em;
+      }
+
+      .gallery-card__caption span {
+        color: var(--accent);
+        font-size: 0.72rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .reviews-grid {
         display: grid;
-        place-items: end start;
-        padding: 18px;
-        text-decoration: none;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
       }
 
-      .map__link span {
+      .review {
+        display: flex;
+        min-height: 270px;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: clamp(22px, 3vw, 34px);
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        background: var(--panel);
+        transition: transform 200ms var(--ease-out), background-color 200ms ease;
+      }
+
+      .review__stars {
+        color: var(--accent);
+        letter-spacing: 0.12em;
+      }
+
+      .review blockquote {
+        margin: 28px 0;
+        font-size: clamp(1.15rem, 2vw, 1.55rem);
+        font-weight: 650;
+        letter-spacing: -0.025em;
+        line-height: 1.3;
+      }
+
+      .review footer {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .location-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+        gap: 18px;
+      }
+
+      .map-card {
+        position: relative;
+        min-height: 640px;
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+        background: #d9d6cf;
+      }
+
+      .map-card iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 640px;
+        border: 0;
+        filter: saturate(0.72) contrast(1.04);
+        pointer-events: none;
+      }
+
+      .map-card__link {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 18px;
+      }
+
+      .map-card__link span {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
-        padding: 12px 15px;
-        border-radius: 10px;
+        gap: 8px;
+        margin-top: auto;
+        padding: 13px 16px;
+        border-radius: 999px;
         background: var(--ink);
-        color: var(--porcelain);
-        box-shadow: 0 14px 30px rgb(0 0 0 / 28%);
+        color: var(--text);
+        font-size: 0.82rem;
+        font-weight: 800;
+        box-shadow: var(--shadow);
       }
 
-      .map__link svg {
-        width: 16px;
-        height: 16px;
-        fill: none;
-        stroke: currentColor;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 1.8;
+      .hours-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: clamp(26px, 4vw, 48px);
+        border-radius: var(--radius-lg);
+        background: var(--ink-soft);
+        color: var(--text);
+      }
+
+      .hours-card h3 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 4rem);
+        letter-spacing: -0.06em;
+        line-height: 0.95;
+      }
+
+      .address {
+        max-width: 33ch;
+        margin: 20px 0 30px;
+        color: var(--muted);
+      }
+
+      .hours {
+        display: grid;
+        margin: 0;
+      }
+
+      .hours > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .hours dt,
+      .hours dd {
+        margin: 0;
+      }
+
+      .hours dt {
+        color: #c7ccd4;
+      }
+
+      .hours dd {
+        font-size: 0.87rem;
+        font-weight: 750;
+        text-align: right;
+      }
+
+      .today-row {
+        color: var(--accent);
+      }
+
+      .today-row dt::after {
+        margin-left: 7px;
+        content: "Hoy";
+        font-size: 0.62rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       .booking {
+        overflow: hidden;
+        background: var(--accent);
+        color: var(--accent-ink);
+      }
+
+      .booking::before {
+        position: absolute;
+        top: -24vw;
+        right: -14vw;
+        width: 54vw;
+        height: 54vw;
+        border: clamp(70px, 9vw, 150px) solid rgba(21, 17, 0, 0.08);
+        border-radius: 50%;
+        content: "";
+      }
+
+      .booking-grid {
+        position: relative;
+        z-index: 1;
         display: grid;
-        grid-template-columns: minmax(0, 0.74fr) minmax(360px, 1fr);
-        gap: clamp(50px, 9vw, 130px);
+        grid-template-columns: minmax(0, 0.7fr) minmax(360px, 1fr);
+        gap: clamp(42px, 8vw, 110px);
       }
 
-      .booking__copy {
-        align-self: start;
-        position: sticky;
-        top: 120px;
+      .booking-copy .section-title {
+        max-width: 8ch;
       }
 
-      .booking__copy p {
-        max-width: 48ch;
-        margin: 26px 0 0;
-        color: var(--steel);
+      .booking-copy > p {
+        max-width: 38ch;
+        margin: 24px 0 30px;
+        color: rgba(23, 17, 0, 0.72);
       }
 
-      .booking__direct {
-        margin-top: 28px;
+      .direct-whatsapp {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid currentColor;
+        font-weight: 850;
       }
 
-      .form {
+      .booking-form {
+        padding: clamp(22px, 4vw, 42px);
+        border-radius: 32px;
+        background: #f9f7f1;
+        color: var(--dark-text);
+        box-shadow: 0 40px 100px rgba(76, 54, 0, 0.2);
+      }
+
+      .form-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 22px 16px;
+        gap: 18px 14px;
       }
 
       .field {
         display: grid;
-        gap: 9px;
+        gap: 8px;
       }
 
-      .field--wide {
+      .field--full {
         grid-column: 1 / -1;
       }
 
       .field label {
-        color: var(--porcelain-soft);
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
+        font-size: 0.76rem;
+        font-weight: 800;
       }
 
       .field input,
-      .field select {
+      .field select,
+      .field textarea {
         width: 100%;
-        min-height: 54px;
-        padding: 0 14px;
-        border: 1px solid var(--line-strong);
-        border-radius: 11px;
-        background: var(--ink-raised);
-        color: var(--porcelain);
-        caret-color: var(--amber);
-        transition:
-          border-color 160ms ease,
-          box-shadow 160ms ease;
+        min-height: 50px;
+        padding: 13px 14px;
+        border: 1px solid #cbc6ba;
+        border-radius: 13px;
+        outline: none;
+        background: #fdfbf6;
+        color: var(--dark-text);
+        transition: border-color 160ms ease, box-shadow 160ms ease;
       }
 
-      .field input::placeholder {
-        color: #959aa1;
-        opacity: 1;
+      .field textarea {
+        min-height: 92px;
+        resize: vertical;
       }
 
       .field input:focus,
-      .field select:focus {
-        border-color: var(--amber);
-        box-shadow: 0 0 0 4px rgb(217 164 65 / 14%);
+      .field select:focus,
+      .field textarea:focus {
+        border-color: #967000;
+        box-shadow: 0 0 0 4px rgba(255, 198, 41, 0.28);
       }
 
-      .field input[aria-invalid="true"] {
-        border-color: var(--danger);
+      .field [aria-invalid="true"] {
+        border-color: #b72f2a;
       }
 
-      .form__submit {
-        grid-column: 1 / -1;
+      .field-error {
+        min-height: 1em;
+        color: #9b2521;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .form-note {
+        margin: 14px 0 0;
+        color: #69645a;
+        font-size: 0.75rem;
+      }
+
+      .form-submit {
         width: 100%;
-        margin-top: 8px;
-        border: 0;
-        background: var(--amber);
+        margin-top: 18px;
       }
 
-      .form__status {
-        min-height: 24px;
-        grid-column: 1 / -1;
-        margin: 0;
-        color: var(--success);
-        font-size: 0.9rem;
+      .site-footer {
+        padding: 72px 0 110px;
+        background: var(--ink);
       }
 
-      .form__status.is-error {
-        color: var(--danger);
-      }
-
-      .footer {
-        padding: 54px 0 100px;
-        border-top: 1px solid var(--line);
-      }
-
-      .footer__grid {
+      .footer-grid {
         display: grid;
         grid-template-columns: 1fr auto;
-        gap: 30px;
-        align-items: end;
+        align-items: start;
+        gap: 40px;
       }
 
-      .footer__brand {
+      .footer-brand {
         display: flex;
         align-items: center;
         gap: 16px;
       }
 
-      .footer__brand img {
-        width: 58px;
-        height: 58px;
-        padding: 5px;
-        border-radius: 12px;
-        background: #fff;
-        object-fit: contain;
+      .footer-brand img {
+        width: 74px;
+        height: 74px;
+        border-radius: 18px;
+        background: #f7f5ef;
       }
 
-      .footer__brand strong {
+      .footer-brand strong {
         display: block;
-        font-family: "Archivo", sans-serif;
+        font-size: 1.35rem;
+        letter-spacing: -0.035em;
       }
 
-      .footer__brand small,
-      .footer__legal {
-        color: var(--steel);
-      }
-
-      .footer__links {
-        display: flex;
-        gap: 18px;
-      }
-
-      .footer__links a {
-        text-underline-offset: 5px;
-      }
-
-      .footer__legal {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        margin-top: 42px;
-        padding-top: 22px;
-        border-top: 1px solid var(--line);
+      .footer-brand span {
+        color: var(--muted);
         font-size: 0.82rem;
       }
 
-      .whatsapp-float {
-        position: fixed;
-        z-index: 90;
-        right: 20px;
-        bottom: 20px;
-        width: 56px;
-        height: 56px;
-        display: grid;
-        place-items: center;
-        border: 1px solid rgb(244 242 237 / 20%);
-        border-radius: 50%;
-        background: #25d366;
-        color: #07110b;
-        box-shadow: 0 16px 40px rgb(0 0 0 / 36%);
-        transition:
-          transform 160ms var(--ease-out),
-          box-shadow 180ms ease;
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
       }
 
-      .whatsapp-float::before {
+      .contact-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: #d3d8e0;
+        font-size: 0.8rem;
+        font-weight: 750;
+        transition: background-color 180ms ease, color 180ms ease;
+      }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        margin-top: 50px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        color: #858d99;
+        font-size: 0.75rem;
+      }
+
+      .float-whatsapp {
+        position: fixed;
+        z-index: 110;
+        right: 22px;
+        bottom: 22px;
+        display: grid;
+        width: 58px;
+        height: 58px;
+        place-items: center;
+        border-radius: 50%;
+        background: #21c76a;
+        color: #07180e;
+        box-shadow: 0 14px 38px rgba(9, 111, 54, 0.38);
+      }
+
+      .float-whatsapp::before {
         position: absolute;
-        inset: -1px;
-        border: 1px solid #25d366;
+        inset: -8px;
+        border: 1px solid rgba(33, 199, 106, 0.7);
         border-radius: inherit;
+        content: "";
+        animation: whatsapp-pulse 2.4s ease-out infinite;
+      }
+
+      @keyframes whatsapp-pulse {
+        70%,
+        100% {
+          transform: scale(1.34);
+          opacity: 0;
+        }
+      }
+
+      .mobile-nav {
+        position: fixed;
+        z-index: 115;
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        display: none;
+        grid-template-columns: repeat(4, 1fr);
+        min-height: 68px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 20px;
+        background: rgba(9, 11, 15, 0.92);
+        box-shadow: 0 16px 46px rgba(0, 0, 0, 0.34);
+        -webkit-backdrop-filter: blur(18px);
+        backdrop-filter: blur(18px);
+      }
+
+      .mobile-nav a {
+        position: relative;
+        display: grid;
+        place-content: center;
+        justify-items: center;
+        gap: 4px;
+        color: #98a2b1;
+        font-size: 0.6rem;
+        font-weight: 850;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .mobile-nav a[aria-current="page"] {
+        color: var(--accent);
+      }
+
+      .mobile-nav a[aria-current="page"]::after {
+        position: absolute;
+        right: 21%;
+        bottom: 0;
+        left: 21%;
+        height: 3px;
+        border-radius: 999px 999px 0 0;
+        background: var(--accent);
         content: "";
       }
 
-      .hero__title,
-      .hero__intro,
-      .hero__actions,
-      .hero__logo-stage {
-        animation: hero-enter 720ms var(--ease-out) both;
+      .lightbox {
+        width: min(calc(100% - 28px), 980px);
+        max-height: calc(100svh - 28px);
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 24px;
+        background: var(--ink);
+        color: var(--text);
+        box-shadow: var(--shadow);
       }
 
-      .hero__intro {
-        animation-delay: 90ms;
+      .lightbox::backdrop {
+        background: rgba(3, 4, 5, 0.86);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
       }
 
-      .hero__actions {
-        animation-delay: 150ms;
+      .lightbox[open] {
+        animation: dialog-in 260ms var(--ease-out);
       }
 
-      .hero__logo-stage {
-        animation-delay: 210ms;
-      }
-
-      @keyframes hero-enter {
+      @keyframes dialog-in {
         from {
+          transform: scale(0.97) translateY(12px);
           opacity: 0;
-          transform: translateY(22px) scale(0.98);
         }
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
+      }
+
+      .lightbox img {
+        width: 100%;
+        max-height: calc(100svh - 110px);
+        object-fit: contain;
+        background: #050608;
+      }
+
+      .lightbox__bar {
+        display: flex;
+        min-height: 68px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 12px 14px 12px 20px;
+      }
+
+      .lightbox__close {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: transparent;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
       }
 
       @media (hover: hover) and (pointer: fine) {
-        .nav__links a:hover {
-          color: var(--porcelain);
-          background: rgb(244 242 237 / 8%);
+        .desktop-nav a:hover {
+          background: rgba(255, 255, 255, 0.08);
+          color: var(--text);
         }
 
-        .nav__links .nav__cta:hover,
         .button:hover {
-          background: var(--amber-soft);
-          color: var(--ink);
+          transform: translateY(-2px);
         }
 
-        .button--ghost:hover {
-          border-color: var(--porcelain);
-          background: var(--porcelain);
-          color: var(--ink);
-        }
-
-        .service:hover {
-          padding-left: 14px;
-          color: #8a5e11;
-        }
-
-        .service:hover .service__price::after {
-          transform: translateX(5px) rotate(45deg);
-        }
-
-        .gallery-card:hover {
-          border-color: var(--amber);
-          background: #16191f;
+        .service-card:hover {
           transform: translateY(-5px);
+          border-color: #9e7a13;
+          box-shadow: 0 28px 76px rgba(27, 21, 9, 0.14);
         }
 
-        .gallery-card:hover .gallery-card__mark {
-          color: var(--porcelain);
-          transform: translateY(-8px);
+        .service-card:hover::after {
+          transform: scale(1);
+          opacity: 0.12;
         }
 
-        .whatsapp-float:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 20px 50px rgb(0 0 0 / 48%);
-        }
-      }
-
-      @media (max-width: 900px) {
-        :root {
-          --page: min(100% - 28px, 760px);
+        .gallery-card:hover img {
+          transform: scale(1.045);
+          opacity: 0.9;
         }
 
-        .nav {
-          top: 10px;
-          min-height: 62px;
+        .gallery-control:hover {
+          background: var(--accent);
         }
 
-        .menu-button {
-          display: block;
+        .review:hover {
+          transform: translateY(-6px) rotate(-0.4deg);
+          background: var(--panel-2);
         }
 
-        .nav__links {
-          position: fixed;
-          top: 78px;
-          left: 14px;
-          right: 14px;
-          display: grid;
-          align-content: start;
-          gap: 4px;
-          padding: 12px;
-          border: 1px solid var(--line);
-          border-radius: 16px;
-          background: #101318;
-          box-shadow: 0 26px 70px rgb(0 0 0 / 46%);
-          opacity: 0;
-          pointer-events: none;
-          transform: translateY(-12px) scale(0.98);
-          transform-origin: top right;
-          transition:
-            opacity 180ms ease,
-            transform 220ms var(--ease-drawer);
-        }
-
-        .nav__links.is-open {
-          opacity: 1;
-          pointer-events: auto;
-          transform: translateY(0) scale(1);
-        }
-
-        .nav__links a {
-          padding: 14px;
-        }
-
-        .nav__links .nav__cta {
-          margin: 6px 0 0;
-          text-align: center;
-        }
-
-        .hero {
-          align-items: center;
-          padding: 125px 0 54px;
-        }
-
-        .hero__grid,
-        .section__head,
-        .location,
-        .booking {
-          grid-template-columns: 1fr;
-        }
-
-        .hero__grid {
-          align-items: center;
-        }
-
-        .hero__logo-stage {
-          width: min(62vw, 300px);
-          grid-row: 1;
-          justify-self: center;
-          order: -1;
-        }
-
-        .hero__copy {
-          text-align: center;
-        }
-
-        .hero__title {
-          max-width: 11ch;
-          margin-inline: auto;
-        }
-
-        .hero__intro {
-          margin-inline: auto;
-        }
-
-        .hero__actions {
-          justify-content: center;
-        }
-
-        .dial {
-          top: 35%;
-          left: 50%;
-          width: 110vw;
-        }
-
-        .section__head {
-          align-items: start;
-        }
-
-        .section__head h2,
-        .booking__copy h2,
-        .location__copy h2 {
-          max-width: 14ch;
-        }
-
-        .service {
-          grid-template-columns: 1fr auto;
-        }
-
-        .service p {
-          grid-column: 1 / -1;
-          grid-row: 2;
-        }
-
-        .gallery-card:nth-child(n) {
-          grid-column: span 6;
-        }
-
-        .gallery-card:nth-child(5) {
-          grid-column: span 12;
-        }
-
-        .booking__copy {
-          position: static;
+        .contact-link:hover {
+          background: var(--accent);
+          color: var(--accent-ink);
         }
       }
 
-      @media (max-width: 580px) {
-        .nav__name,
-        .hero__coordinate {
+      @media (max-width: 920px) {
+        .desktop-nav a:not(.button) {
           display: none;
         }
 
+        .hero__grid,
+        .section-heading,
+        .services-layout,
+        .craft-grid,
+        .location-grid,
+        .booking-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero__aside {
+          position: absolute;
+          right: 16px;
+          bottom: 170px;
+        }
+
+        .logo-plaque {
+          display: none;
+        }
+
+        .services-intro {
+          position: static;
+        }
+
+        .services-intro .section-title {
+          max-width: 11ch;
+        }
+
+        .reviews-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .review:last-child {
+          grid-column: 1 / -1;
+        }
+
+        .map-card,
+        .map-card iframe {
+          min-height: 480px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        html {
+          scroll-padding-top: 20px;
+        }
+
+        body {
+          padding-bottom: 82px;
+        }
+
+        .site-header {
+          top: 10px;
+          width: calc(100% - 20px);
+          min-height: 56px;
+          padding: 6px 7px 6px 9px;
+        }
+
+        .brand img {
+          width: 38px;
+          height: 38px;
+        }
+
+        .brand strong {
+          max-width: 120px;
+          font-size: 0.78rem;
+        }
+
+        .desktop-nav .button {
+          min-height: 42px;
+          padding-inline: 15px;
+          font-size: 0.78rem;
+        }
+
         .hero {
-          min-height: auto;
-          padding-top: 112px;
+          min-height: 100svh;
         }
 
-        .hero__title {
-          font-size: clamp(3.15rem, 16vw, 4.7rem);
+        .hero__media {
+          object-position: 62% center;
         }
 
-        .hero__actions,
+        .hero__scrim {
+          background:
+            linear-gradient(0deg, rgba(7, 8, 10, 0.97) 3%, rgba(7, 8, 10, 0.72) 54%, rgba(7, 8, 10, 0.26) 100%),
+            linear-gradient(90deg, rgba(7, 8, 10, 0.6), transparent 70%);
+        }
+
+        .hero__inner {
+          width: calc(100% - 28px);
+          padding: 104px 0 18px;
+        }
+
+        .hero h1 {
+          max-width: 9ch;
+          font-size: clamp(3.5rem, 18vw, 5.5rem);
+        }
+
+        .hero__copy {
+          max-width: 32ch;
+          margin-top: 18px;
+          font-size: 0.96rem;
+        }
+
+        .hero__actions {
+          margin-top: 20px;
+        }
+
         .hero__actions .button {
-          width: 100%;
+          min-height: 46px;
+          padding-inline: 16px;
+          font-size: 0.8rem;
         }
 
-        .service {
+        .hero__aside {
+          position: static;
+          justify-items: start;
+          margin-top: 18px;
+        }
+
+        .stats {
+          grid-template-columns: 1fr 1fr;
+          margin-top: 18px;
+        }
+
+        .stat {
+          padding: 13px 14px;
+        }
+
+        .stat + .stat {
+          border-left: 0;
+        }
+
+        .stat:nth-child(even) {
+          border-left: 1px solid var(--line);
+        }
+
+        .stat:nth-child(n + 3) {
+          border-top: 1px solid var(--line);
+        }
+
+        .stat strong {
+          font-size: 1.25rem;
+        }
+
+        .section {
+          padding: 88px 0;
+        }
+
+        .shell {
+          width: calc(100% - 28px);
+        }
+
+        .section-heading {
+          gap: 18px;
+          margin-bottom: 38px;
+        }
+
+        .section-title {
+          font-size: clamp(2.7rem, 13vw, 4.5rem);
+        }
+
+        .service-card {
+          position: relative;
+          top: auto;
+          grid-template-columns: 36px minmax(0, 1fr);
+          min-height: 0;
+          padding: 22px 18px;
+          border-radius: 22px;
+        }
+
+        .service-card__meta {
+          grid-column: 2;
+          grid-row: 2;
+          justify-items: start;
+          margin-top: 14px;
+        }
+
+        .service-card__price {
+          font-size: 2rem;
+        }
+
+        .craft-photo {
+          min-height: 620px;
+          border-radius: 28px;
+        }
+
+        .craft-copy {
+          padding-bottom: 0;
+        }
+
+        .craft-points {
           grid-template-columns: 1fr;
-          gap: 12px;
         }
 
-        .service p,
-        .service__price {
-          grid-column: 1;
-          grid-row: auto;
+        .craft-point {
+          min-height: 0;
         }
 
-        .gallery-card:nth-child(n) {
-          grid-column: span 12;
-          min-height: 240px;
+        .gallery-toolbar {
+          align-items: end;
         }
 
-        .map,
-        .map iframe {
-          min-height: 430px;
+        .gallery-card,
+        .gallery-card:nth-child(2) {
+          flex-basis: 86vw;
+          aspect-ratio: 4 / 5;
         }
 
-        .form {
+        .reviews-grid {
           grid-template-columns: 1fr;
         }
 
-        .field,
-        .field--wide,
-        .form__submit,
-        .form__status {
-          grid-column: 1;
+        .review:last-child {
+          grid-column: auto;
         }
 
-        .footer__grid,
-        .footer__legal {
+        .review {
+          min-height: 235px;
+        }
+
+        .map-card,
+        .map-card iframe {
+          min-height: 420px;
+        }
+
+        .hours-card {
+          border-radius: 28px;
+        }
+
+        .booking-grid {
+          gap: 38px;
+        }
+
+        .booking-form {
+          padding: 20px 16px;
+          border-radius: 24px;
+        }
+
+        .form-grid {
           grid-template-columns: 1fr;
+        }
+
+        .field--full {
+          grid-column: auto;
+        }
+
+        .footer-grid,
+        .footer-bottom {
+          grid-template-columns: 1fr;
+          flex-direction: column;
+        }
+
+        .footer-links {
+          justify-content: flex-start;
+        }
+
+        .float-whatsapp {
+          right: 16px;
+          bottom: 92px;
+          width: 52px;
+          height: 52px;
+        }
+
+        .mobile-nav {
           display: grid;
         }
 
-        .footer__links {
-          flex-wrap: wrap;
+        .site-footer {
+          padding-bottom: 40px;
         }
       }
 
       @media (prefers-reduced-motion: reduce) {
-        :root {
+        html {
           scroll-behavior: auto;
         }
 
         *,
         *::before,
         *::after {
+          scroll-behavior: auto !important;
           animation-duration: 1ms !important;
           animation-iteration-count: 1 !important;
-          scroll-behavior: auto !important;
           transition-duration: 1ms !important;
         }
 
+        [data-reveal] {
+          transform: none;
+          opacity: 1;
+        }
+
+        .hero__media,
+        .craft-photo img {
+          height: 100%;
+          transform: none;
+        }
+
+        .marquee__track {
+          animation: none;
+        }
+
+        .float-whatsapp::before {
+          display: none;
+        }
       }
     </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BarberShop",
+        "name": "Tres R barbershop",
+        "image": "https://cuentayisus02-jpg.github.io/tres-r-barberia-e5a1e/foto-hero.jpg",
+        "url": "https://cuentayisus02-jpg.github.io/tres-r-barberia-e5a1e/",
+        "telephone": "+528128750500",
+        "priceRange": "$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. de los Astros 101, Plaza Point 54, Local 7, Barrio Estrella",
+          "addressLocality": "Monterrey",
+          "addressRegion": "N.L.",
+          "postalCode": "64100",
+          "addressCountry": "MX"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.3",
+          "reviewCount": "16"
+        },
+        "sameAs": ["https://www.instagram.com/tresr_barber"],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "14:00",
+            "closes": "22:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "13:00",
+            "closes": "21:00"
+          }
+        ]
+      }
+    </script>
   </head>
-  <body>
+  <body class="is-loading">
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
 
-    <header class="nav" id="nav">
-      <a class="nav__brand" href="#inicio" aria-label="Ir al inicio">
-        <img class="nav__logo" src="./logo-tresr.png" alt="Logotipo proporcionado de la barbería" />
-        <span class="nav__name">
-          <strong>[Nombre de la barbería]</strong>
-          <span>[Ciudad / zona]</span>
-        </span>
+    <div class="loader" aria-hidden="true">
+      <div class="loader__panel"></div>
+      <div class="loader__panel"></div>
+      <div class="loader__logo-wrap"><img src="logo-tresr.png" alt="" /></div>
+      <p class="loader__word">Monterrey · Est. 1980</p>
+    </div>
+
+    <header class="site-header" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Tres R barbershop, ir al inicio">
+        <img src="logo-tresr.png" alt="" width="43" height="43" />
+        <strong>Tres R barbershop</strong>
       </a>
-      <button
-        class="menu-button"
-        id="menu-button"
-        type="button"
-        aria-label="Abrir menú"
-        aria-controls="nav-links"
-        aria-expanded="false"
-      >
-        <span></span>
-      </button>
-      <nav class="nav__links" id="nav-links" aria-label="Navegación principal">
+      <nav class="desktop-nav" aria-label="Secciones">
+        <a href="#inicio" aria-current="page">Inicio</a>
         <a href="#servicios">Servicios</a>
+        <a href="#barberos">Barberos</a>
         <a href="#galeria">Galería</a>
         <a href="#ubicacion">Ubicación</a>
-        <a href="#cita">Contacto</a>
-        <a class="nav__cta" href="#cita">Agendar</a>
+        <a class="button button--accent" href="#citas">Agendar</a>
       </nav>
     </header>
 
     <main id="contenido">
       <section class="hero" id="inicio" aria-labelledby="hero-title">
-        <div class="dial" aria-hidden="true"><span class="dial__hand"></span></div>
-        <div class="shell hero__grid">
-          <div class="hero__copy">
-            <h1 class="hero__title" id="hero-title">
-              [Nombre de la barbería]
-              <span>[Eslogan opcional]</span>
-            </h1>
-            <p class="hero__intro">
-              [Texto breve sobre la experiencia, el estilo y la atención de la barbería.]
+        <img
+          class="hero__media"
+          src="foto-hero.jpg"
+          alt="Barbero de Tres R realizando un corte dentro del local"
+          width="1200"
+          height="1600"
+          fetchpriority="high"
+        />
+        <div class="hero__scrim" aria-hidden="true"></div>
+        <div class="hero__texture" aria-hidden="true"></div>
+        <div class="hero__inner">
+          <div class="hero__grid">
+            <div>
+              <p class="eyebrow">Barbería en Monterrey</p>
+              <h1 id="hero-title">Tu estilo. <span>Bien hecho.</span></h1>
+              <p class="hero__copy">Cortes precisos, buen ambiente y un barbero que te trata como amigo.</p>
+              <div class="hero__actions">
+                <a class="button button--accent" href="#citas">
+                  Agendar en la web
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+                <a
+                  class="button button--outline"
+                  href="https://wa.me/528128750500?text=Hola%20Tres%20R%20barbershop%2C%20quiero%20agendar%20una%20cita."
+                  target="_blank"
+                  rel="noopener"
+                >
+                  WhatsApp directo
+                </a>
+              </div>
+            </div>
+            <aside class="hero__aside" aria-label="Estado y logotipo">
+              <div class="logo-plaque"><img src="logo-tresr.png" alt="Logotipo de Tres R barbershop" /></div>
+              <p class="open-chip" id="open-status" data-open="true" role="status">Consultando horario</p>
+            </aside>
+          </div>
+
+          <div class="stats" aria-label="Datos destacados">
+            <div class="stat"><strong>+10</strong><span>Años de experiencia</span></div>
+            <div class="stat"><strong>100%</strong><span>Atención al detalle</span></div>
+            <div class="stat"><strong>4.3 ★</strong><span>16 opiniones en Google</span></div>
+            <div class="stat"><strong>Fría</strong><span>Bebida de cortesía</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--paper" id="servicios" aria-labelledby="services-title">
+        <div class="shell services-layout">
+          <div class="services-intro" data-reveal style="--reveal-x: -28px">
+            <span class="kicker">Servicios y precios</span>
+            <h2 class="section-title" id="services-title">Elige tu próximo corte.</h2>
+            <p>Precios claros, sin sorpresas. Toca un servicio y llegará preseleccionado a tu cita.</p>
+          </div>
+
+          <div class="services-list">
+            <button class="service-card" style="--stack: 0" type="button" data-service="Corte" data-reveal>
+              <span class="service-card__number">01</span>
+              <span>
+                <span class="service-card__title">Corte</span>
+                <p>Desvanecido a tu gusto, tijera o máquina y peinado final.</p>
+              </span>
+              <span class="service-card__meta">
+                <strong class="service-card__price">$200</strong>
+                <span class="service-card__duration">35 a 40 min</span>
+              </span>
+            </button>
+
+            <button class="service-card service-card--featured" style="--stack: 1" type="button" data-service="Corte y barba" data-reveal>
+              <span class="service-card__number">02</span>
+              <span>
+                <span class="recommendation">Más pedido</span>
+                <span class="service-card__title" style="margin-top: 14px">Corte y barba</span>
+                <p>El ritual completo: corte fresco, toalla caliente, arreglo de barba y acabado impecable.</p>
+              </span>
+              <span class="service-card__meta">
+                <strong class="service-card__price">$300</strong>
+                <span class="service-card__duration">50 a 60 min</span>
+              </span>
+            </button>
+
+            <button class="service-card" style="--stack: 2" type="button" data-service="Delineado de ceja" data-reveal>
+              <span class="service-card__number">03</span>
+              <span>
+                <span class="service-card__title">Delineado de ceja</span>
+                <p>Limpieza milimétrica y definición natural para una mirada más limpia.</p>
+              </span>
+              <span class="service-card__meta">
+                <strong class="service-card__price">$50</strong>
+                <span class="service-card__duration">15 min</span>
+              </span>
+            </button>
+
+            <button class="service-card" style="--stack: 3" type="button" data-service="Línea extra" data-reveal>
+              <span class="service-card__number">04</span>
+              <span>
+                <span class="service-card__title">Línea extra</span>
+                <p>Trazo adicional con navaja para darle un detalle único a tu corte.</p>
+              </span>
+              <span class="service-card__meta">
+                <strong class="service-card__price">$50</strong>
+                <span class="service-card__duration">10 min</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Corte con intención</span><span>Monterrey</span><span>Agenda por WhatsApp</span><span>Tres R barbershop</span>
+          <span>Corte con intención</span><span>Monterrey</span><span>Agenda por WhatsApp</span><span>Tres R barbershop</span>
+        </div>
+      </div>
+
+      <section class="section" id="barberos" aria-labelledby="barbers-title">
+        <div class="shell">
+          <div class="section-heading">
+            <div data-reveal style="--reveal-x: -26px">
+              <span class="kicker">Aquí un amigo es tu barbero</span>
+              <h2 class="section-title" id="barbers-title">Oficio que se nota.</h2>
+            </div>
+            <p class="section-lede" data-reveal style="--reveal-x: 26px">
+              Llegas, platicas y sales con un corte hecho para ti. Sin poses, con atención real.
             </p>
-            <div class="hero__actions">
-              <a class="button" href="#cita">Agendar cita</a>
-              <a
-                class="button button--ghost js-whatsapp"
-                href="https://wa.me/?text=Hola%2C%20quiero%20agendar%20una%20cita"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M8.2 19.2 4 20l.8-4.1a8 8 0 1 1 3.4 3.3Z" />
-                  <path d="M9 8.5c.5 2.6 2 4.1 4.6 4.7l1.2-1.1 1.8.9-.3 2c-4.6.8-8.1-2.7-7.3-7.3l2-.3.9 1.8L10.8 10" />
-                </svg>
-                WhatsApp
+          </div>
+
+          <div class="craft-grid">
+            <figure class="craft-photo" data-reveal style="--reveal-x: -34px">
+              <img src="foto-hero.jpg" alt="Barbero de Tres R trabajando en un corte" width="1200" height="1600" loading="lazy" />
+              <figcaption class="craft-photo__caption">
+                <strong>Equipo Tres R</strong>
+                <span>Precisión y trato</span>
+              </figcaption>
+            </figure>
+            <div class="craft-copy">
+              <blockquote data-reveal style="--reveal-x: 28px">
+                “No es solo un corte. Es salir sintiéndote <span>tú.</span>”
+              </blockquote>
+              <div class="craft-points" data-reveal>
+                <div class="craft-point"><strong>01</strong><span>Escuchamos el estilo que buscas</span></div>
+                <div class="craft-point"><strong>02</strong><span>Cuidamos cada línea y detalle</span></div>
+                <div class="craft-point"><strong>03</strong><span>Terminamos con acabado limpio</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--paper" id="galeria" aria-labelledby="gallery-title">
+        <div class="shell gallery-shell">
+          <div class="section-heading">
+            <div data-reveal style="--reveal-x: -26px">
+              <span class="kicker">Fotos reales</span>
+              <h2 class="section-title" id="gallery-title">Conoce el lugar.</h2>
+            </div>
+            <p class="section-lede" data-reveal style="--reveal-x: 26px">
+              Un espacio sencillo, cómodo y listo para tu siguiente corte.
+            </p>
+          </div>
+
+          <div class="gallery-toolbar">
+            <span class="gallery-counter" id="gallery-counter" aria-live="polite">01 / 03</span>
+            <div class="gallery-controls" aria-label="Controles de la galería">
+              <button class="gallery-control" id="gallery-prev" type="button" aria-label="Foto anterior">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+              </button>
+              <button class="gallery-control" id="gallery-next" type="button" aria-label="Foto siguiente">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-track" id="gallery-track" role="region" aria-label="Galería del local" tabindex="0">
+            <button class="gallery-card" type="button" data-image="foto-hero.jpg" data-caption="Un corte en proceso dentro de Tres R">
+              <img src="foto-hero.jpg" alt="Barbero atendiendo a un cliente en Tres R" width="1200" height="1600" loading="lazy" />
+              <span class="gallery-card__caption"><strong>En acción</strong><span>01</span></span>
+            </button>
+            <button class="gallery-card" type="button" data-image="foto-interior.jpg" data-caption="Interior de Tres R barbershop">
+              <img src="foto-interior.jpg" alt="Interior y estaciones de trabajo de Tres R barbershop" width="1200" height="1600" loading="lazy" />
+              <span class="gallery-card__caption"><strong>El espacio</strong><span>02</span></span>
+            </button>
+            <button class="gallery-card" type="button" data-image="foto-fachada.jpg" data-caption="Fachada de Tres R en Plaza Point 54">
+              <img src="foto-fachada.jpg" alt="Fachada de Tres R barbershop en Plaza Point 54" width="1200" height="1600" loading="lazy" />
+              <span class="gallery-card__caption"><strong>Cómo encontrarnos</strong><span>03</span></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="resenas" aria-labelledby="reviews-title">
+        <div class="shell">
+          <div class="section-heading">
+            <div data-reveal style="--reveal-x: -26px">
+              <span class="kicker">4.3 en Google</span>
+              <h2 class="section-title" id="reviews-title">Lo dicen quienes ya vinieron.</h2>
+            </div>
+            <p class="section-lede" data-reveal style="--reveal-x: 26px">Opiniones públicas de clientes de Tres R.</p>
+          </div>
+
+          <div class="reviews-grid">
+            <article class="review" data-reveal>
+              <span class="review__stars" aria-label="5 de 5 estrellas">★★★★★</span>
+              <blockquote>“Recomiendo mucho esta barber, excelente servicio, te tratan bien.”</blockquote>
+              <footer>Alexis Rubio · Google</footer>
+            </article>
+            <article class="review" data-reveal>
+              <span class="review__stars" aria-label="4 de 5 estrellas">★★★★☆</span>
+              <blockquote>“Está bien, te ofrecen cerveza o agua.”</blockquote>
+              <footer>Raúl Valadez · Google</footer>
+            </article>
+            <article class="review" data-reveal>
+              <span class="review__stars" aria-label="5 de 5 estrellas">★★★★★</span>
+              <blockquote>“Atendieron rápido y buen corte.”</blockquote>
+              <footer>Erick Palacios · Google</footer>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--paper" id="ubicacion" aria-labelledby="location-title">
+        <div class="shell">
+          <div class="section-heading">
+            <div data-reveal style="--reveal-x: -26px">
+              <span class="kicker">Ubicación y horario</span>
+              <h2 class="section-title" id="location-title">Te esperamos en Plaza Point 54.</h2>
+            </div>
+            <p class="section-lede" data-reveal style="--reveal-x: 26px">Local 7, Barrio Estrella, Monterrey.</p>
+          </div>
+
+          <div class="location-grid">
+            <div class="map-card" data-reveal style="--reveal-x: -30px">
+              <iframe
+                title="Mapa de Tres R barbershop"
+                src="https://www.google.com/maps?q=Av.%20de%20los%20Astros%20101%2C%20Plaza%20Point%2054%2C%20Local%207%2C%20Monterrey%2C%20Nuevo%20Le%C3%B3n&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                tabindex="-1"
+              ></iframe>
+              <a class="map-card__link" href="https://share.google/cdP6yS1NWYeYmILMh" target="_blank" rel="noopener">
+                <span>
+                  Abrir en Google Maps
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" fill="none" stroke="currentColor" stroke-width="2" /></svg>
+                </span>
               </a>
             </div>
-          </div>
-          <div class="hero__logo-stage" aria-label="Logotipo original de la barbería">
-            <div class="hero__logo-wrap">
-              <img src="./logo-tresr.png" alt="Logotipo proporcionado de la barbería" />
+
+            <div class="hours-card" data-reveal style="--reveal-x: 30px">
+              <div>
+                <span class="kicker">Horario del local</span>
+                <h3 id="hours-status">Consulta nuestro horario</h3>
+                <p class="address">Av. de los Astros 101, Plaza Point 54, Local 7, Barrio Estrella, 64100 Monterrey, N.L.</p>
+              </div>
+              <dl class="hours" id="hours-list">
+                <div data-day="1"><dt>Lunes</dt><dd>2:00 p.m. a 10:00 p.m.</dd></div>
+                <div data-day="2"><dt>Martes</dt><dd>2:00 p.m. a 10:00 p.m.</dd></div>
+                <div data-day="3"><dt>Miércoles</dt><dd>2:00 p.m. a 10:00 p.m.</dd></div>
+                <div data-day="4"><dt>Jueves</dt><dd>2:00 p.m. a 10:00 p.m.</dd></div>
+                <div data-day="5"><dt>Viernes</dt><dd>2:00 p.m. a 10:00 p.m.</dd></div>
+                <div data-day="6"><dt>Sábado</dt><dd>1:00 p.m. a 9:00 p.m.</dd></div>
+                <div data-day="0"><dt>Domingo</dt><dd>Cerrado</dd></div>
+              </dl>
             </div>
-            <span class="hero__coordinate">[Desde 20XX] · [Ciudad]</span>
           </div>
         </div>
       </section>
 
-      <section class="section section--light" id="servicios" aria-labelledby="services-title">
-        <div class="shell">
-          <div class="section__head">
-            <h2 id="services-title">Servicios medidos al detalle.</h2>
-            <p>
-              [Descripción breve de los servicios. Sustituye los nombres, textos y precios antes de publicar.]
-            </p>
-          </div>
-          <div class="services">
-            <a class="service" href="#cita" data-service="[Nombre del servicio 1]">
-              <h3>[Nombre del servicio 1]</h3>
-              <p>[Descripción breve del servicio 1 y del acabado que puede esperar el cliente.]</p>
-              <span class="service__price">[Precio $]</span>
-            </a>
-            <a class="service" href="#cita" data-service="[Nombre del servicio 2]">
-              <h3>[Nombre del servicio 2]</h3>
-              <p>[Descripción breve del servicio 2 y del acabado que puede esperar el cliente.]</p>
-              <span class="service__price">[Precio $]</span>
-            </a>
-            <a class="service" href="#cita" data-service="[Nombre del servicio 3]">
-              <h3>[Nombre del servicio 3]</h3>
-              <p>[Descripción breve del servicio 3 y del acabado que puede esperar el cliente.]</p>
-              <span class="service__price">[Precio $]</span>
-            </a>
-            <a class="service" href="#cita" data-service="[Nombre del servicio 4]">
-              <h3>[Nombre del servicio 4]</h3>
-              <p>[Descripción breve del servicio 4 y del acabado que puede esperar el cliente.]</p>
-              <span class="service__price">[Precio $]</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="galeria" aria-labelledby="gallery-title">
-        <div class="shell">
-          <div class="section__head">
-            <h2 id="gallery-title">El espacio. El oficio. El resultado.</h2>
-            <p>
-              [Reemplaza estos marcadores con fotografías optimizadas del local, el equipo y trabajos reales.]
-            </p>
-          </div>
-          <div class="gallery-grid" aria-label="Galería de imágenes de la barbería">
-            <button class="gallery-card" type="button" data-label="[img_galeria_01]" data-caption="Interior de la barbería">
-              <span class="gallery-card__mark" role="img" aria-label="Interior de la barbería">[img_galeria_01]</span>
-              <strong>Interior</strong><small>[Fotografía del espacio principal]</small>
-            </button>
-            <button class="gallery-card" type="button" data-label="[img_galeria_02]" data-caption="Corte realizado en la barbería">
-              <span class="gallery-card__mark" role="img" aria-label="Corte realizado en la barbería">[img_galeria_02]</span>
-              <strong>Cortes</strong><small>[Trabajo realizado]</small>
-            </button>
-            <button class="gallery-card" type="button" data-label="[img_galeria_03]" data-caption="Barbero trabajando">
-              <span class="gallery-card__mark" role="img" aria-label="Barbero trabajando">[img_galeria_03]</span>
-              <strong>Oficio</strong><small>[Barbero trabajando]</small>
-            </button>
-            <button class="gallery-card" type="button" data-label="[img_galeria_04]" data-caption="Detalle de herramientas de barbería">
-              <span class="gallery-card__mark" role="img" aria-label="Detalle de herramientas de barbería">[img_galeria_04]</span>
-              <strong>Herramientas</strong><small>[Detalle del equipo]</small>
-            </button>
-            <button class="gallery-card" type="button" data-label="[img_galeria_05]" data-caption="Ambiente de la barbería">
-              <span class="gallery-card__mark" role="img" aria-label="Ambiente de la barbería">[img_galeria_05]</span>
-              <strong>Ambiente</strong><small>[Fotografía panorámica del local]</small>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--light" id="ubicacion" aria-labelledby="location-title">
-        <div class="shell location">
-          <div class="location__copy">
-            <h2 id="location-title">Encuéntranos sin rodeos.</h2>
-            <p>[Descripción de la zona, referencias para llegar y disponibilidad de estacionamiento.]</p>
-            <address>[Dirección exacta]<br />[Ciudad, estado y código postal]</address>
-          </div>
-          <div class="map">
-            <iframe
-              title="Mapa de la ubicación de la barbería"
-              src="https://www.google.com/maps?q=%5BDirecci%C3%B3n%20exacta%5D&amp;output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-            <span class="map__placeholder" role="img" aria-label="Marcador de posición del mapa">[mapa_ubicacion]</span>
+      <section class="section booking" id="citas" aria-labelledby="booking-title">
+        <div class="shell booking-grid">
+          <div class="booking-copy" data-reveal style="--reveal-x: -30px">
+            <span class="kicker">Agenda en menos de un minuto</span>
+            <h2 class="section-title" id="booking-title">Tu lugar te espera.</h2>
+            <p>Llena el formulario y WhatsApp abrirá con todos tus datos listos para enviar.</p>
             <a
-              class="map__link"
-              href="https://www.google.com/maps/search/?api=1&amp;query=%5BDirecci%C3%B3n%20exacta%5D"
+              class="direct-whatsapp"
+              href="https://wa.me/528128750500?text=Hola%20Tres%20R%20barbershop%2C%20quiero%20agendar%20una%20cita."
               target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Abrir la dirección en Google Maps"
-            ><span
-                >Abrir en Google Maps
-                <svg viewBox="0 0 20 20" aria-hidden="true">
-                  <path d="M6 14 14 6M8 6h6v6" />
-                </svg>
-              </span></a
-            >
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="cita" aria-labelledby="booking-title">
-        <div class="shell booking">
-          <div class="booking__copy">
-            <h2 id="booking-title">Tu próxima cita, en minutos.</h2>
-            <p>
-              Completa el formulario y se abrirá WhatsApp con tu solicitud lista. La cita queda confirmada cuando la barbería responda.
-            </p>
-            <a
-              class="button button--ghost booking__direct js-whatsapp"
-              href="https://wa.me/?text=Hola%2C%20quiero%20agendar%20una%20cita"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Agendar directo por WhatsApp</a>
-            <p><strong>WhatsApp:</strong> [número de WhatsApp con código de país]</p>
+              rel="noopener"
+            >WhatsApp sin formulario: +52 81 2875 0500</a>
           </div>
 
-          <form class="form" id="booking-form" novalidate>
-            <div class="field field--wide">
-              <label for="name">Nombre *</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="[Tu nombre]" required />
+          <form class="booking-form" id="booking-form" novalidate data-reveal style="--reveal-x: 30px">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Nombre *</label>
+                <input id="name" name="name" autocomplete="name" required />
+                <span class="field-error" id="name-error"></span>
+              </div>
+              <div class="field">
+                <label for="phone">Teléfono *</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="81 2345 6789" required />
+                <span class="field-error" id="phone-error"></span>
+              </div>
+              <div class="field field--full">
+                <label for="service">Servicio *</label>
+                <select id="service" name="service" required>
+                  <option value="">Selecciona un servicio</option>
+                  <option>Corte</option>
+                  <option>Corte y barba</option>
+                  <option>Delineado de ceja</option>
+                  <option>Línea extra</option>
+                </select>
+                <span class="field-error" id="service-error"></span>
+              </div>
+              <div class="field">
+                <label for="date">Fecha *</label>
+                <input id="date" name="date" type="date" required />
+                <span class="field-error" id="date-error"></span>
+              </div>
+              <div class="field">
+                <label for="time">Hora *</label>
+                <select id="time" name="time" required disabled>
+                  <option value="">Primero elige una fecha</option>
+                </select>
+                <span class="field-error" id="time-error"></span>
+              </div>
+              <div class="field field--full">
+                <label for="note">Nota opcional</label>
+                <textarea id="note" name="note" maxlength="240" placeholder="Cuéntanos algún detalle de tu corte"></textarea>
+              </div>
             </div>
-            <div class="field field--wide">
-              <label for="phone">Teléfono *</label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                inputmode="tel"
-                autocomplete="tel"
-                placeholder="[10 a 15 dígitos]"
-                pattern="[0-9]{10,15}"
-                required
-              />
-            </div>
-            <div class="field field--wide">
-              <label for="service">Servicio *</label>
-              <select id="service" name="service" required>
-                <option value="">Selecciona un servicio</option>
-                <option>[Nombre del servicio 1]</option>
-                <option>[Nombre del servicio 2]</option>
-                <option>[Nombre del servicio 3]</option>
-                <option>[Nombre del servicio 4]</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="date">Fecha *</label>
-              <input id="date" name="date" type="date" required />
-            </div>
-            <div class="field">
-              <label for="time">Hora *</label>
-              <input id="time" name="time" type="time" required />
-            </div>
-            <button class="button form__submit" type="submit">Preparar cita en WhatsApp</button>
-            <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+            <button class="button button--dark form-submit" type="submit">
+              Enviar solicitud por WhatsApp
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </button>
+            <p class="form-note">La cita queda confirmada cuando Tres R responda por WhatsApp.</p>
+            <p class="sr-only" id="form-status" aria-live="assertive"></p>
           </form>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="site-footer">
       <div class="shell">
-        <div class="footer__grid">
-          <div class="footer__brand">
-            <img src="./logo-tresr.png" alt="Logotipo proporcionado de la barbería" />
-            <div><strong>[Nombre de la barbería]</strong><small>[Ciudad / ubicación]</small></div>
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="logo-tresr.png" alt="" width="74" height="74" loading="lazy" />
+            <div><strong>Tres R barbershop</strong><span>Monterrey, Nuevo León</span></div>
           </div>
-          <nav class="footer__links" aria-label="Redes sociales">
-            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">[@instagram]</a>
-            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">[Facebook]</a>
-          </nav>
+          <div class="footer-links">
+            <a class="contact-link" href="https://www.instagram.com/tresr_barber" target="_blank" rel="noopener">Instagram @tresr_barber</a>
+            <a class="contact-link" href="tel:+528128750500">Llamar</a>
+            <button class="contact-link" id="save-contact" type="button">Guardar contacto</button>
+          </div>
         </div>
-        <div class="footer__legal">
-          <span>© <span id="year"></span> [Nombre de la barbería]. Derechos reservados.</span>
-          <span>[Aviso de privacidad]</span>
+        <div class="footer-bottom">
+          <span>© <span id="year"></span> Tres R barbershop</span>
+          <span>Lun a vie 2:00 p.m. a 10:00 p.m. · Sáb 1:00 p.m. a 9:00 p.m. · Dom cerrado</span>
         </div>
       </div>
     </footer>
 
     <a
-      class="whatsapp-float js-whatsapp"
-      href="https://wa.me/?text=Hola%2C%20quiero%20agendar%20una%20cita"
+      class="float-whatsapp"
+      href="https://wa.me/528128750500?text=Hola%20Tres%20R%20barbershop%2C%20quiero%20agendar%20una%20cita."
       target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Abrir WhatsApp para agendar una cita"
+      rel="noopener"
+      aria-label="Agendar por WhatsApp"
     >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M8.2 19.2 4 20l.8-4.1a8 8 0 1 1 3.4 3.3Z" />
-        <path d="M9 8.5c.5 2.6 2 4.1 4.6 4.7l1.2-1.1 1.8.9-.3 2c-4.6.8-8.1-2.7-7.3-7.3l2-.3.9 1.8L10.8 10" />
-      </svg>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.7 7.1L4 20l1.3-4.1A8 8 0 1 1 20 11.6Z" /><path d="M8.4 8.1c.2-.5.4-.5.7-.5h.5l.8 2c.1.2 0 .4-.1.6l-.6.7c-.2.2-.1.4 0 .6.7 1.2 1.7 2.1 3 2.7.2.1.4.1.5-.1l.9-1.1c.2-.2.4-.2.6-.1l1.9.9c.3.1.4.3.3.5-.1.8-.6 1.5-1.3 1.9-.5.3-1.2.4-2 .2-1.2-.3-2.8-1-4.2-2.3-1.2-1.1-2.1-2.5-2.4-3.6-.3-.9 0-1.8.4-2.4Z" /></svg>
     </a>
 
-    <dialog id="lightbox" aria-labelledby="lightbox-title">
-      <div class="lightbox">
-        <div class="lightbox__bar">
-          <strong id="lightbox-title">Vista ampliada</strong>
-          <button class="lightbox__close" type="button" aria-label="Cerrar imagen ampliada"></button>
-        </div>
-        <div class="lightbox__media" id="lightbox-media" role="img"></div>
-        <p class="lightbox__caption" id="lightbox-caption"></p>
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      <a href="#inicio" aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5M5 9.5V21h14V9.5M9 21v-7h6v7" /></svg>
+        Inicio
+      </a>
+      <a href="#servicios">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="7" r="3" /><circle cx="6" cy="17" r="3" /><path d="m8.7 8.3 11.3 5.9M8.7 15.7 20 9.8" /></svg>
+        Servicios
+      </a>
+      <a href="#barberos">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4 21c.8-4.6 3.4-7 8-7s7.2 2.4 8 7" /></svg>
+        Barberos
+      </a>
+      <a href="#citas">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" /></svg>
+        Citas
+      </a>
+    </nav>
+
+    <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
+      <img id="lightbox-image" src="foto-hero.jpg" alt="" />
+      <div class="lightbox__bar">
+        <strong id="lightbox-caption">Foto de Tres R barbershop</strong>
+        <button class="lightbox__close" id="lightbox-close" type="button" aria-label="Cerrar foto">×</button>
       </div>
     </dialog>
 
     <script>
       (() => {
-        const menuButton = document.querySelector("#menu-button");
-        const navLinks = document.querySelector("#nav-links");
-        const nav = document.querySelector("#nav");
-        const form = document.querySelector("#booking-form");
-        const status = document.querySelector("#form-status");
-        const service = document.querySelector("#service");
-        const date = document.querySelector("#date");
-        const dialog = document.querySelector("#lightbox");
-        const lightboxMedia = document.querySelector("#lightbox-media");
-        const lightboxCaption = document.querySelector("#lightbox-caption");
-        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-        const mobileMenu = window.matchMedia("(max-width: 900px)");
-        let lastScroll = window.scrollY;
-        let pointerFrame = 0;
+        "use strict";
 
-        const closeMenu = () => {
-          navLinks.classList.remove("is-open");
-          menuButton.setAttribute("aria-expanded", "false");
-          menuButton.setAttribute("aria-label", "Abrir menú");
-          document.body.classList.remove("menu-open");
-          navLinks.inert = mobileMenu.matches;
+        const $ = (selector, scope = document) => scope.querySelector(selector);
+        const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const finishIntro = () => {
+          document.body.classList.add("is-ready");
+          window.setTimeout(() => {
+            document.body.classList.remove("is-loading");
+            $(".loader")?.remove();
+          }, reduceMotion ? 20 : 1780);
         };
+        window.setTimeout(finishIntro, reduceMotion ? 10 : 220);
 
-        const syncMenuA11y = () => {
-          if (!mobileMenu.matches) {
-            navLinks.inert = false;
-            closeMenu();
-            navLinks.inert = false;
-          } else {
-            navLinks.inert = menuButton.getAttribute("aria-expanded") !== "true";
-          }
-        };
-
-        menuButton.addEventListener("click", () => {
-          const open = menuButton.getAttribute("aria-expanded") === "true";
-          if (open) {
-            closeMenu();
-          } else {
-            navLinks.classList.add("is-open");
-            navLinks.inert = false;
-            menuButton.setAttribute("aria-expanded", "true");
-            menuButton.setAttribute("aria-label", "Cerrar menú");
-            document.body.classList.add("menu-open");
-          }
-        });
-
-        navLinks.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
-        mobileMenu.addEventListener("change", syncMenuA11y);
-        syncMenuA11y();
-        document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape") closeMenu();
-        });
-
-        window.addEventListener(
-          "scroll",
-          () => {
-            const current = window.scrollY;
-            nav.classList.toggle("is-hidden", current > lastScroll && current > 160 && !navLinks.classList.contains("is-open"));
-            lastScroll = current;
-          },
-          { passive: true },
-        );
-
-        document.querySelectorAll("section[id]").forEach((section) => {
-          new IntersectionObserver(
-            ([entry]) => {
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
               if (!entry.isIntersecting) return;
-              document.querySelectorAll(".nav__links a").forEach((link) => {
-                link.toggleAttribute("aria-current", link.getAttribute("href") === `#${section.id}`);
-              });
-            },
-            { rootMargin: "-35% 0px -55%" },
-          ).observe(section);
-        });
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.14, rootMargin: "0px 0px -7%" }
+        );
+        $$('[data-reveal]').forEach((element) => revealObserver.observe(element));
 
-        if (!reducedMotion.matches) {
-          window.addEventListener(
-            "pointermove",
-            (event) => {
-              cancelAnimationFrame(pointerFrame);
-              pointerFrame = requestAnimationFrame(() => {
-                const turn = ((event.clientX / window.innerWidth) - 0.5) * 5;
-                document.querySelector(".dial").style.setProperty("--pointer-x", `${turn}deg`);
-              });
-            },
-            { passive: true },
-          );
-        }
+        const sectionLinks = $$('a[href^="#"]');
+        const sections = $$('main section[id]');
+        const navObserver = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+            if (!visible) return;
+            const id = visible.target.id;
+            sectionLinks.forEach((link) => {
+              const href = link.getAttribute("href");
+              const mobileGroup = link.closest(".mobile-nav") && ["barberos", "galeria", "resenas"].includes(id) && href === "#barberos";
+              const current = href === `#${id}` || mobileGroup;
+              if (link.closest("nav")) {
+                if (current) link.setAttribute("aria-current", "page");
+                else link.removeAttribute("aria-current");
+              }
+            });
+          },
+          { threshold: [0.18, 0.45], rootMargin: "-18% 0px -48%" }
+        );
+        sections.forEach((section) => navObserver.observe(section));
 
-        document.querySelectorAll(".service").forEach((item) => {
-          item.addEventListener("click", () => {
-            service.value = item.dataset.service;
+        const mxNow = () => {
+          const parts = new Intl.DateTimeFormat("en-US", {
+            timeZone: "America/Monterrey",
+            weekday: "short",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+          }).formatToParts(new Date());
+          const values = Object.fromEntries(parts.map(({ type, value }) => [type, value]));
+          const days = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+          return { day: days[values.weekday], minutes: Number(values.hour) * 60 + Number(values.minute) };
+        };
+
+        const updateOpenStatus = () => {
+          const { day, minutes } = mxNow();
+          const opens = day === 6 ? 13 * 60 : 14 * 60;
+          const closes = day === 6 ? 21 * 60 : 22 * 60;
+          const open = day !== 0 && minutes >= opens && minutes < closes;
+          const status = $("#open-status");
+          const title = $("#hours-status");
+          status.dataset.open = String(open);
+          if (open) {
+            const remaining = closes - minutes;
+            status.textContent = `Abierto ahora · cierra en ${Math.floor(remaining / 60)} h ${remaining % 60} min`;
+            title.textContent = "Estamos abiertos ahora.";
+          } else {
+            status.textContent = day === 0 ? "Cerrado hoy · abrimos lunes 2:00 p.m." : minutes < opens ? `Cerrado · abrimos a las ${day === 6 ? "1:00" : "2:00"} p.m.` : day === 6 ? "Cerrado · abrimos lunes 2:00 p.m." : "Cerrado · abrimos mañana 2:00 p.m.";
+            title.textContent = "Ahora estamos cerrados.";
+          }
+          $$("#hours-list > div").forEach((row) => row.classList.toggle("today-row", Number(row.dataset.day) === day));
+        };
+        updateOpenStatus();
+        window.setInterval(updateOpenStatus, 60000);
+
+        const serviceSelect = $("#service");
+        $$(".service-card").forEach((card) => {
+          card.addEventListener("click", (event) => {
+            serviceSelect.value = card.dataset.service;
+            const instant = reduceMotion || event.detail === 0;
+            $("#citas").scrollIntoView({ behavior: instant ? "auto" : "smooth" });
+            window.setTimeout(() => serviceSelect.focus(), instant ? 0 : 650);
           });
         });
 
-        document.querySelectorAll(".gallery-card").forEach((item) => {
-          item.addEventListener("click", () => {
-            lightboxMedia.textContent = item.dataset.label;
-            lightboxMedia.setAttribute("aria-label", item.dataset.caption);
-            lightboxCaption.textContent = `${item.dataset.caption} — reemplaza este marcador con la fotografía real.`;
-            dialog.showModal();
+        const gallery = $("#gallery-track");
+        const galleryCards = $$(".gallery-card", gallery);
+        const galleryCounter = $("#gallery-counter");
+        const moveGallery = (direction) => gallery.scrollBy({ left: direction * gallery.clientWidth * 0.82, behavior: reduceMotion ? "auto" : "smooth" });
+        $("#gallery-prev").addEventListener("click", () => moveGallery(-1));
+        $("#gallery-next").addEventListener("click", () => moveGallery(1));
+
+        const galleryObserver = new IntersectionObserver(
+          (entries) => {
+            const current = entries.find((entry) => entry.isIntersecting);
+            if (!current) return;
+            const index = galleryCards.indexOf(current.target) + 1;
+            galleryCounter.textContent = `${String(index).padStart(2, "0")} / ${String(galleryCards.length).padStart(2, "0")}`;
+          },
+          { root: gallery, threshold: 0.58 }
+        );
+        galleryCards.forEach((card) => galleryObserver.observe(card));
+
+        const lightbox = $("#lightbox");
+        const lightboxImage = $("#lightbox-image");
+        const lightboxCaption = $("#lightbox-caption");
+        let lightboxTrigger = null;
+        galleryCards.forEach((card) => {
+          card.addEventListener("click", () => {
+            lightboxTrigger = card;
+            lightboxImage.src = card.dataset.image;
+            lightboxImage.alt = card.dataset.caption;
+            lightboxCaption.textContent = card.dataset.caption;
+            lightbox.showModal();
+            $("#lightbox-close").focus();
           });
         });
-
-        dialog.querySelector(".lightbox__close").addEventListener("click", () => dialog.close());
-        dialog.addEventListener("click", (event) => {
-          if (event.target === dialog) dialog.close();
+        const closeLightbox = () => lightbox.close();
+        $("#lightbox-close").addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", (event) => {
+          if (event.target === lightbox) closeLightbox();
         });
+        lightbox.addEventListener("close", () => lightboxTrigger?.focus());
 
-        const today = new Date();
-        date.min = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+        const dateInput = $("#date");
+        const timeSelect = $("#time");
+        const todayParts = new Intl.DateTimeFormat("en-US", {
+          timeZone: "America/Monterrey",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        }).formatToParts(new Date());
+        const todayValues = Object.fromEntries(todayParts.map(({ type, value }) => [type, value]));
+        const today = `${todayValues.year}-${todayValues.month}-${todayValues.day}`;
+        dateInput.min = today;
 
-        form.addEventListener("submit", (event) => {
-          event.preventDefault();
-          status.classList.remove("is-error");
-          form.querySelectorAll("[aria-invalid]").forEach((field) => field.removeAttribute("aria-invalid"));
+        const formatTime = (hour, minute) => {
+          const suffix = hour >= 12 ? "p.m." : "a.m.";
+          const h12 = hour % 12 || 12;
+          return `${h12}:${String(minute).padStart(2, "0")} ${suffix}`;
+        };
 
-          if (!form.checkValidity()) {
-            form.querySelectorAll(":invalid").forEach((field) => field.setAttribute("aria-invalid", "true"));
-            form.reportValidity();
-            status.textContent = "Revisa los campos marcados y vuelve a intentarlo.";
-            status.classList.add("is-error");
+        const populateTimes = () => {
+          timeSelect.replaceChildren();
+          if (!dateInput.value) {
+            timeSelect.add(new Option("Primero elige una fecha", ""));
+            timeSelect.disabled = true;
             return;
           }
+          const [year, month, day] = dateInput.value.split("-").map(Number);
+          const weekday = new Date(year, month - 1, day).getDay();
+          if (weekday === 0) {
+            timeSelect.add(new Option("Domingo cerrado", ""));
+            timeSelect.disabled = true;
+            return;
+          }
+          const start = weekday === 6 ? 13 : 14;
+          const finalSlot = weekday === 6 ? 20.5 : 21.5;
+          timeSelect.add(new Option("Selecciona una hora", ""));
+          for (let value = start; value <= finalSlot; value += 0.5) {
+            const label = formatTime(Math.floor(value), value % 1 ? 30 : 0);
+            timeSelect.add(new Option(label, label));
+          }
+          timeSelect.disabled = false;
+        };
+        dateInput.addEventListener("change", populateTimes);
 
-          const data = new FormData(form);
-          const message = [
-            "Hola, quiero agendar una cita.",
-            `Nombre: ${data.get("name")}`,
-            `Teléfono: ${data.get("phone")}`,
-            `Servicio: ${data.get("service")}`,
-            `Fecha: ${data.get("date")}`,
-            `Hora: ${data.get("time")}`,
-          ].join("\n");
+        const bookingForm = $("#booking-form");
+        const fields = ["name", "phone", "service", "date", "time"];
+        const setError = (id, message) => {
+          const field = $(`#${id}`);
+          const error = $(`#${id}-error`);
+          field.setAttribute("aria-invalid", String(Boolean(message)));
+          if (message) field.setAttribute("aria-describedby", `${id}-error`);
+          else field.removeAttribute("aria-describedby");
+          error.textContent = message;
+        };
 
-          status.textContent = "Solicitud preparada. Se abrirá WhatsApp para que decidas enviarla.";
-          window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+        bookingForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          fields.forEach((id) => setError(id, ""));
+          const data = new FormData(bookingForm);
+          const name = String(data.get("name") || "").trim();
+          const phone = String(data.get("phone") || "").replace(/\D/g, "");
+          const service = String(data.get("service") || "");
+          const date = String(data.get("date") || "");
+          const time = String(data.get("time") || "");
+          const note = String(data.get("note") || "").trim();
+          if (!name) setError("name", "Escribe tu nombre.");
+          if (phone.length < 10 || phone.length > 15) setError("phone", "Usa un teléfono de 10 a 15 dígitos.");
+          if (!service) setError("service", "Elige un servicio.");
+          if (!date) setError("date", "Elige una fecha.");
+          if (date && date < today) setError("date", "Elige hoy o una fecha posterior.");
+          if (!time) setError("time", date && timeSelect.disabled ? "Los domingos estamos cerrados." : "Elige una hora.");
+          const invalid = fields.find((id) => $(`#${id}`).getAttribute("aria-invalid") === "true");
+          if (invalid) {
+            $("#form-status").textContent = "Revisa los campos marcados.";
+            $(`#${invalid}`).focus();
+            return;
+          }
+          const [year, month, day] = date.split("-").map(Number);
+          const prettyDate = new Intl.DateTimeFormat("es-MX", { weekday: "long", day: "numeric", month: "long" }).format(new Date(year, month - 1, day));
+          const noteText = note ? ` Nota: ${note}` : "";
+          const message = `Hola Tres R barbershop, soy ${name}. Mi teléfono es ${phone}. Quiero solicitar una cita para ${service} el ${prettyDate} a las ${time}.${noteText}`;
+          window.open(`https://wa.me/528128750500?text=${encodeURIComponent(message)}`, "_blank", "noopener");
         });
 
-        document.querySelector("#year").textContent = new Date().getFullYear();
+        $("#save-contact").addEventListener("click", () => {
+          const vcard = [
+            "BEGIN:VCARD",
+            "VERSION:3.0",
+            "N:;Tres R barbershop;;;",
+            "FN:Tres R barbershop",
+            "ORG:Tres R barbershop",
+            "TEL;TYPE=CELL,VOICE:+528128750500",
+            "ADR;TYPE=WORK:;;Av. de los Astros 101, Plaza Point 54, Local 7;Monterrey;N.L.;64100;México",
+            "URL:https://cuentayisus02-jpg.github.io/tres-r-barberia-e5a1e/",
+            "X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/tresr_barber",
+            "NOTE:Lun a vie 2:00 p.m. a 10:00 p.m.; sáb 1:00 p.m. a 9:00 p.m.; dom cerrado.",
+            "END:VCARD",
+          ].join("\r\n");
+          const url = URL.createObjectURL(new Blob([vcard], { type: "text/vcard;charset=utf-8" }));
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "Tres-R-barbershop.vcf";
+          link.click();
+          window.setTimeout(() => URL.revokeObjectURL(url), 1200);
+        });
+
+        $("#year").textContent = new Date().getFullYear();
       })();
     </script>
   </body>
