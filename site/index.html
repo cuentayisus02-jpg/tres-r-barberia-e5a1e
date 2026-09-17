@@ -1356,6 +1356,110 @@
         box-shadow: 0 0 0 4px rgba(255, 198, 41, 0.28);
       }
 
+      .file-field {
+        position: relative;
+      }
+
+      .file-input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
+      .file-picker {
+        display: flex;
+        min-height: 76px;
+        align-items: center;
+        gap: 13px;
+        padding: 14px 16px;
+        border: 1px dashed #a89e8c;
+        border-radius: 15px;
+        background: #fdfbf6;
+        cursor: pointer;
+        transition: border-color 180ms ease, background-color 180ms ease, transform 180ms var(--ease-out);
+      }
+
+      .file-picker__icon {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        flex: 0 0 auto;
+        place-items: center;
+        border-radius: 12px;
+        background: var(--accent);
+        color: var(--accent-ink);
+      }
+
+      .file-picker__icon svg {
+        width: 21px;
+        height: 21px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+      }
+
+      .file-picker__copy {
+        display: grid;
+        gap: 2px;
+      }
+
+      .file-picker__copy strong {
+        font-size: 0.88rem;
+      }
+
+      .file-picker__copy span {
+        color: #69645a;
+        font-size: 0.74rem;
+      }
+
+      .file-input:focus-visible + .file-picker {
+        outline: 3px solid var(--dark-text);
+        outline-offset: 3px;
+      }
+
+      .file-input[aria-invalid="true"] + .file-picker {
+        border-color: #b72f2a;
+      }
+
+      .file-status {
+        min-height: 1.1em;
+        margin: 0;
+        color: #4f4b43;
+        font-size: 0.75rem;
+        font-weight: 650;
+      }
+
+      .file-status[data-error="true"] {
+        color: #9b2521;
+      }
+
+      .file-preview {
+        display: grid;
+        max-width: 260px;
+        margin-top: 6px;
+        overflow: hidden;
+        border: 1px solid #d2cbbb;
+        border-radius: 14px;
+        background: #eeeae1;
+      }
+
+      .file-preview[hidden] {
+        display: none;
+      }
+
+      .file-preview img,
+      .file-preview video {
+        width: 100%;
+        max-height: 180px;
+        object-fit: cover;
+      }
+
       .field [aria-invalid="true"] {
         border-color: #b72f2a;
       }
@@ -1644,6 +1748,12 @@
         .contact-link:hover {
           background: var(--accent);
           color: var(--accent-ink);
+        }
+
+        .file-picker:hover {
+          border-color: #806100;
+          background: #fff9e5;
+          transform: translateY(-1px);
         }
 
         .social-link:hover {
@@ -2376,9 +2486,19 @@
                 <span class="field-error" id="time-error"></span>
               </div>
               <div class="field field--full">
-                <label for="reference">Referencia del corte (opcional)</label>
-                <textarea id="reference" name="reference" maxlength="500" aria-describedby="reference-hint" placeholder="Describe el corte que buscas o pega un enlace a una foto o video"></textarea>
-                <p class="field-hint" id="reference-hint">Se incluirá en tu mensaje. Si tienes una foto en tu celular, puedes enviarla después en el chat de WhatsApp.</p>
+                <label for="reference-file">Referencia del corte (opcional)</label>
+                <div class="file-field">
+                  <input class="file-input" id="reference-file" name="referenceFile" type="file" accept="image/*,video/*" aria-describedby="reference-hint reference-file-status" />
+                  <label class="file-picker" for="reference-file">
+                    <span class="file-picker__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h3l1.4-1.5h3.6A2.5 2.5 0 0 1 17 6v1.5h.5A2.5 2.5 0 0 1 20 10v7.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5Z"/><circle cx="12" cy="13" r="3.2"/><path d="M16.5 8.5h.01"/></svg>
+                    </span>
+                    <span class="file-picker__copy"><strong>Adjuntar foto o video</strong><span>JPG, PNG, HEIC, MP4 o MOV · máximo 25 MB</span></span>
+                  </label>
+                </div>
+                <p class="field-hint" id="reference-hint">El archivo se queda en tu dispositivo. Después de abrir WhatsApp, adjúntalo en el chat para que el barbero lo vea.</p>
+                <p class="file-status" id="reference-file-status" aria-live="polite"></p>
+                <div class="file-preview" id="reference-preview" hidden></div>
               </div>
               <div class="field field--full">
                 <label for="note">Nota opcional</label>
@@ -2661,6 +2781,51 @@
         dateInput.addEventListener("input", populateTimes);
         dateInput.addEventListener("change", populateTimes);
 
+        const referenceFileInput = $("#reference-file");
+        const referenceFileStatus = $("#reference-file-status");
+        const referencePreview = $("#reference-preview");
+        const maxReferenceBytes = 25 * 1024 * 1024;
+        let referencePreviewUrl = null;
+        const isReferenceMedia = (file) => file && (file.type.startsWith("image/") || file.type.startsWith("video/") || /\.(jpe?g|png|gif|webp|heic|heif|mp4|mov|webm|m4v)$/i.test(file.name));
+        const formatFileSize = (bytes) => bytes < 1024 * 1024 ? `${Math.max(1, Math.round(bytes / 1024))} KB` : `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+        const clearReferencePreview = () => {
+          if (referencePreviewUrl) URL.revokeObjectURL(referencePreviewUrl);
+          referencePreviewUrl = null;
+          referencePreview.replaceChildren();
+          referencePreview.hidden = true;
+        };
+        const setReferenceFileError = (message) => {
+          referenceFileStatus.textContent = message;
+          referenceFileStatus.dataset.error = String(Boolean(message));
+          referenceFileInput.setAttribute("aria-invalid", String(Boolean(message)));
+        };
+        referenceFileInput.addEventListener("change", () => {
+          clearReferencePreview();
+          const file = referenceFileInput.files?.[0];
+          if (!file) {
+            setReferenceFileError("");
+            return;
+          }
+          if (!isReferenceMedia(file) || file.size > maxReferenceBytes) {
+            referenceFileInput.value = "";
+            setReferenceFileError("Elige una foto o video de hasta 25 MB.");
+            return;
+          }
+          setReferenceFileError(`Archivo seleccionado: ${file.name} · ${formatFileSize(file.size)}`);
+          referencePreviewUrl = URL.createObjectURL(file);
+          const preview = document.createElement(file.type.startsWith("video/") ? "video" : "img");
+          preview.src = referencePreviewUrl;
+          preview.alt = `Vista previa de ${file.name}`;
+          if (preview.tagName === "VIDEO") {
+            preview.controls = true;
+            preview.muted = true;
+            preview.playsInline = true;
+            preview.preload = "metadata";
+          }
+          referencePreview.append(preview);
+          referencePreview.hidden = false;
+        });
+
         const bookingForm = $("#booking-form");
         const fields = ["name", "phone", "service", "date", "time"];
         const setError = (id, message) => {
@@ -2682,7 +2847,7 @@
           const date = String(data.get("date") || "");
           const time = String(data.get("time") || "");
           const note = String(data.get("note") || "").trim();
-          const reference = String(data.get("reference") || "").trim();
+          const referenceFile = referenceFileInput.files?.[0] || null;
           if (!name) setError("name", "Escribe tu nombre.");
           if (phone.length < 10 || phone.length > 15) setError("phone", "Usa un teléfono de 10 a 15 dígitos.");
           if (!service) setError("service", "Elige un servicio.");
@@ -2695,10 +2860,15 @@
             $(`#${invalid}`).focus();
             return;
           }
+          if (referenceFile && (!isReferenceMedia(referenceFile) || referenceFile.size > maxReferenceBytes)) {
+            setReferenceFileError("Elige una foto o video de hasta 25 MB.");
+            referenceFileInput.focus();
+            return;
+          }
           const [year, month, day] = date.split("-").map(Number);
           const prettyDate = new Intl.DateTimeFormat("es-MX", { weekday: "long", day: "numeric", month: "long" }).format(new Date(year, month - 1, day));
           const noteText = note ? ` Nota: ${note}` : "";
-          const referenceText = reference ? `\nReferencia del corte: ${reference}` : "";
+          const referenceText = referenceFile ? `\nReferencia adjunta: ${referenceFile.name} (${formatFileSize(referenceFile.size)}). Adjunta este archivo en el chat de WhatsApp para que podamos verlo.` : "";
           const message = `Hola Tres R barbershop, soy ${name}. Mi teléfono es ${phone}. Quiero solicitar una cita para ${service} el ${prettyDate} a las ${time}.${noteText}${referenceText}`;
           window.open(`https://wa.me/528128750500?text=${encodeURIComponent(message)}`, "_blank", "noopener");
         });
