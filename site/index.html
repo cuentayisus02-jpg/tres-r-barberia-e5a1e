@@ -1316,6 +1316,14 @@
         box-shadow: 0 40px 100px rgba(76, 54, 0, 0.2);
       }
 
+      .booking-honeypot {
+        position: absolute;
+        left: -10000px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
       .form-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -2354,6 +2362,10 @@
           </div>
 
           <form class="booking-form" id="booking-form" novalidate data-reveal style="--reveal-x: 30px">
+            <div class="booking-honeypot" aria-hidden="true">
+              <label for="website">Deja este campo vacío</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
             <div class="form-grid">
               <div class="field">
                 <label for="name">Nombre *</label>
@@ -2412,8 +2424,9 @@
               Enviar solicitud por WhatsApp
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
             </button>
-            <p class="form-note">La cita queda confirmada cuando Tres R responda por WhatsApp.</p>
+            <p class="form-note">Guardaremos tus datos para gestionar la solicitud. La cita queda confirmada cuando Tres R responda por WhatsApp.</p>
             <p class="sr-only" id="form-status" aria-live="assertive"></p>
+            <a class="direct-whatsapp" id="whatsapp-fallback" href="#" target="_blank" rel="noopener" hidden>Continuar por WhatsApp sin guardar la solicitud</a>
           </form>
         </div>
       </section>
@@ -2695,7 +2708,7 @@
           error.textContent = message;
         };
 
-        bookingForm.addEventListener("submit", (event) => {
+        bookingForm.addEventListener("submit", async (event) => {
           event.preventDefault();
           fields.forEach((id) => setError(id, ""));
           const data = new FormData(bookingForm);
@@ -2706,6 +2719,7 @@
           const date = String(data.get("date") || "");
           const time = String(data.get("time") || "");
           const note = String(data.get("note") || "").trim();
+          const honeypot = String(data.get("website") || "");
           if (!name) setError("name", "Escribe tu nombre.");
           if (phone.length < 10 || phone.length > 15) setError("phone", "Usa un teléfono de 10 a 15 dígitos.");
           if (!service) setError("service", "Elige un servicio.");
@@ -2724,7 +2738,41 @@
           const noteText = note ? `\nNota: ${note}` : "";
           const message = `Hola Tres R barbershop, soy ${name}. Mi teléfono es ${phone}. Quiero solicitar una cita para ${service} el ${prettyDate} a las ${time}.${styleText}${noteText}`;
           const whatsappUrl = `https://wa.me/528128750500?text=${encodeURIComponent(message)}`;
-          window.open(whatsappUrl, "_blank", "noopener");
+          const status = $("#form-status");
+          const fallback = $("#whatsapp-fallback");
+          const submitButton = bookingForm.querySelector('[type="submit"]');
+          const whatsappWindow = window.open("about:blank", "_blank");
+          if (whatsappWindow) whatsappWindow.opener = null;
+          fallback.hidden = true;
+          submitButton.disabled = true;
+          bookingForm.setAttribute("aria-busy", "true");
+          status.textContent = "Guardando tu solicitud y preparando WhatsApp…";
+
+          try {
+            const response = await fetch("/api/appointments", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ name, phone, service, date, time, style, note, website: honeypot }),
+            });
+            if (!response.ok) throw new Error("No se pudo guardar la solicitud.");
+            const result = await response.json();
+            if (result.ignored) {
+              whatsappWindow?.close();
+              status.textContent = "Solicitud recibida.";
+              return;
+            }
+            status.textContent = "Solicitud guardada. Abriendo WhatsApp para que la envíes.";
+            if (whatsappWindow) whatsappWindow.location.replace(whatsappUrl);
+            else window.location.assign(whatsappUrl);
+          } catch {
+            whatsappWindow?.close();
+            status.textContent = "No se pudo guardar ahora. Puedes continuar por WhatsApp; tu cita aún no está solicitada.";
+            fallback.href = whatsappUrl;
+            fallback.hidden = false;
+          } finally {
+            submitButton.disabled = false;
+            bookingForm.removeAttribute("aria-busy");
+          }
         });
 
         $("#save-contact").addEventListener("click", () => {
