@@ -1,5 +1,10 @@
 [build]
+  command = "echo Static site ready in site/"
   publish = "site"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
 
 [[headers]]
   for = "/*"

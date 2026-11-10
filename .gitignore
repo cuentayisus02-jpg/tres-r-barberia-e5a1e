@@ -8,6 +8,11 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+.vercel
+.netlify
+.env*
+!.env.example
+output/playwright/
 dist
 dist-ssr
 .output
