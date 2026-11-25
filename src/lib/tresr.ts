@@ -1,9 +1,9 @@
 export const NEGOCIO = {
   nombre: "Tres R Barbería",
-  telefono: "+52 81 2875 0500",
-  telefonoE164: "+528128750500",
+  telefono: "+52 81 2683 0605",
+  telefonoE164: "+528126830605",
   whatsapp:
-    "https://wa.me/528128750500?text=Hola%20Tres%20R%20Barber%C3%ADa%2C%20quiero%20agendar%20una%20cita.",
+    "https://wa.me/528126830605?text=Hola%20Tres%20R%20Barber%C3%ADa%2C%20quiero%20agendar%20una%20cita.",
   direccion:
     "Av. de los Astros 101, Plaza Point 54, Local 7, Barrio Estrella, 64100 Monterrey, N.L.",
   maps: "https://share.google/11qmvryk6tomfi9mS",
@@ -132,7 +132,7 @@ export function fechaLegible(iso: string): string {
 }
 
 export function enlaceWhatsApp(mensaje: string): string {
-  return "https://wa.me/528128750500?text=" + encodeURIComponent(mensaje);
+  return "https://wa.me/528126830605?text=" + encodeURIComponent(mensaje);
 }
 
 export function descargarVCard(): void {
@@ -142,7 +142,7 @@ export function descargarVCard(): void {
     "N:;Tres R Barbería;;;",
     "FN:Tres R Barbería",
     "ORG:Tres R Barbería",
-    "TEL;TYPE=CELL,VOICE:+528128750500",
+    "TEL;TYPE=CELL,VOICE:+528126830605",
     "ADR;TYPE=WORK:;;Av. de los Astros 101, Plaza Point 54, Local 7;Monterrey;N.L.;64100;México",
     "URL:https://tres-r-barberia.netlify.app/",
     "X-SOCIALPROFILE;TYPE=instagram:" + NEGOCIO.instagram,
