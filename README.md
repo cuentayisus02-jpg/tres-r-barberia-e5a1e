@@ -10,9 +10,9 @@ DATOS REALES
 
 - Nombre: Tres R Barbería / Tres R barbershop
 
-- WhatsApp: +52 81 2875 0500
+- WhatsApp: +52 81 2683 0605
 
-- Enlace de agenda: https://wa.me/528128750500
+- Enlace de agenda: https://wa.me/528126830605
 
 - Dirección: Av. de los Astros 101, Plaza Point 54, Local 7, Barrio Estrella, 64100 Monterrey, N.L.
 
@@ -54,7 +54,7 @@ ESTRUCTURA
 
 5. Sección Experiencia con la descripción real y tres beneficios: trato cercano, atención al detalle y ambiente relajado.
 
-6. Agenda inteligente: formulario corto con Nombre, Servicio, Fecha preferida, Hora preferida y Nota opcional. La fecha no puede ser anterior a hoy. Horarios disponibles acordes al horario del negocio. Al pulsar “Enviar solicitud por WhatsApp”, valida los campos y abre WhatsApp en una pestaña nueva a +528128750500 con mensaje URL-encoded, claro y personalizado, por ejemplo: “Hola Tres R Barbería, soy [nombre]. Quiero solicitar una cita para [servicio] el [fecha] a las [hora]. [nota]”. Indica claramente que la cita queda confirmada cuando la barbería responda por WhatsApp. No requiere backend.
+6. Agenda inteligente: formulario corto con Nombre, Servicio, Fecha preferida, Hora preferida y Nota opcional. La fecha no puede ser anterior a hoy. Horarios disponibles acordes al horario del negocio. Al pulsar “Enviar solicitud por WhatsApp”, valida los campos y abre WhatsApp en una pestaña nueva a +528126830605 con mensaje URL-encoded, claro y personalizado, por ejemplo: “Hola Tres R Barbería, soy [nombre]. Quiero solicitar una cita para [servicio] el [fecha] a las [hora]. [nota]”. Indica claramente que la cita queda confirmada cuando la barbería responda por WhatsApp. No requiere backend.
 
 7. Reseñas con las tres opiniones reales, estrellas y CTA “Ver en Google”.
 
@@ -68,7 +68,7 @@ FUNCIONALIDAD EXTRA
 
 - Botón flotante de WhatsApp en móvil y una barra CTA fija inferior sin tapar contenido.
 
-- “Guardar contacto” debe descargar un archivo vCard generado en cliente con nombre Tres R Barbería, teléfono +528128750500, dirección e Instagram.
+- “Guardar contacto” debe descargar un archivo vCard generado en cliente con nombre Tres R Barbería, teléfono +528126830605, dirección e Instagram.
 
 - Los enlaces externos deben abrir en pestaña nueva con atributos seguros.
 
